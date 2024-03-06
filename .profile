@@ -21,6 +21,7 @@ export h3l="/home/iceyrazor/.local/share/Steam/steamapps/compatdata/450540/pfx/d
 export mcs="/home/iceyrazor/stuff/minecraft/servers/IM2/"
 export mcm="/home/iceyrazor/stuff/minecraft/modpacks/iceys-modpack-2"
 export julia=~/stuff/scripts/c/SDL/juliaset
+export bgitd="/home/iceyrazor/stuff/iceys-linux-stuffs"
 
 export workdir=/home/iceyrazor/stuff/scripts/c/SDL/falling-sand
 
