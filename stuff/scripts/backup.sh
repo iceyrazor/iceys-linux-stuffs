@@ -13,6 +13,6 @@ fsync () {
 
 syncfile="stuff .bash_profile .bashrc .gtkrc-2.0 .profile .urlview .vimrc .xinitrc .Xresources .zshrc .newsboat .config/neoboot.sh .private .local/bin/lf-gadgets .config/dwm .config/gtk-3.0 .config/lf .config/picom.conf Desktop .config/obs-studio/basic .config/nvim .config/screenkey.json"
 target=~/u/LINUX\ FILES/home/iceyrazor
-exclude="--exclude manual-programs/OpenSeeFace --exclude **/minecraft/modpacks --exclude **/minecraft/servers"
+exclude="--exclude manual-programs/OpenSeeFace --exclude **/minecraft/modpacks --exclude **/minecraft/servers --exclude **/iceys-linux-stuffs"
 
 fsync

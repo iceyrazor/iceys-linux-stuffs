@@ -32,6 +32,7 @@ alias ovim=/usr/bin/vim
 alias vim=nvim
 #alias updateL='sudo /home/iceyrazor/update_list/update_list.sh '
 alias bbackup="~/stuff/scripts/backup.sh"
+alias bgit="~/stuff/scripts/move-to-git.sh"
 alias vasm="~/stuff/manual-programs/vasm/vasm6502_oldstyle -Fbin -dotdir "
 alias pipes="pipes.sh -t 1 -p 3 -f 30 -r 3000"
 alias neofetchl="~/stuff/scripts/neoloop.sh"
