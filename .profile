@@ -12,7 +12,7 @@ if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 export PROMPT_EOL_MARK=""
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER="firefox"
 export DWM_NOTIF_FILE="/home/iceyrazor/stuff/scripts/c/SDL/notif/notif.txt"
 export PREFIX=/usr
