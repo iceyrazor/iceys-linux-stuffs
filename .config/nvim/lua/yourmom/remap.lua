@@ -1,0 +1,33 @@
+vim.g.mapleader=" "
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) 
+
+
+vim.keymap.set("n","<C-h>","<C-g>h")
+vim.keymap.set("n","<C-j>","<C-w>j")
+vim.keymap.set("n","<C-l>","<C-w>l")
+vim.keymap.set("n","<C-h>","<C-w>h")
+--nnoremap S :%s//g<left><left>
+
+
+--[[vim.cmd[[
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'>
+]]
+
+
+--move highlighted stuffs
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+--keeps cursor at cur pos when stacking lines to single line
+vim.keymap.set("n", "J", "mzJ`z")
+--keeps cursur in middle with up down
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+--sets leader y to put in sys clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+vim.keymap.set("n", "S", [[:%s//<Left>]])
