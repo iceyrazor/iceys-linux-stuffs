@@ -26,3 +26,7 @@ vim.cmd('set signcolumn=no')
 
 vim.cmd('hi Pmenu ctermfg=120')
 vim.cmd('hi Pmenu ctermbg=0')
+
+vim.cmd('hi StatusLine ctermfg=0')
+vim.cmd('hi StatusLine ctermbg=15')
+vim.cmd('hi StatusLine cterm=reverse')
