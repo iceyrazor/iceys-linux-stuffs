@@ -23,7 +23,7 @@ export mcm="/home/iceyrazor/stuff/minecraft/modpacks/iceys-modpack-2"
 export julia=~/stuff/scripts/c/SDL/juliaset
 export bgitd="/home/iceyrazor/stuff/iceys-linux-stuffs"
 
-export workdir=/home/iceyrazor/stuff/scripts/c/SDL/falling-sand
+export workdir=/home/iceyrazor/stuff/scripts/c/web/basic
 
 alias ls='ls --color=auto'
 alias lss="sudo du -ah -d 1 | sort -hr"
@@ -49,6 +49,7 @@ alias wlx="~/stuff/app_images/WlxOverlay-v1.4.5-x86_64.AppImage & disown"
 alias sc="ffmpeg -f x11grab -framerate 1 -video_size 1920x1200 -i :0.0 -vframes 1 -crf 18 output.jpeg"
 alias scs="sleep 3s && ffmpeg -f x11grab -framerate 1 -video_size 1920x1200 -i :0.0 -vframes 1 -crf 18 output.jpeg"
 alias obss="sudo obs && obs & disown"
+alias urlv="cat $1 | urlview"
 
 alias statst="echo full_stat:true > ~/stuff/scripts/stbar/config.txt"
 alias statsf="echo full_stat:false > ~/stuff/scripts/stbar/config.txt"

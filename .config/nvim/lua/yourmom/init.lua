@@ -1,5 +1,6 @@
 require("yourmom.remap")
 
+
 vim.opt.guicursor=""
 
 vim.opt.nu = true
@@ -30,3 +31,6 @@ vim.cmd('hi Pmenu ctermbg=0')
 vim.cmd('hi StatusLine ctermfg=0')
 vim.cmd('hi StatusLine ctermbg=15')
 vim.cmd('hi StatusLine cterm=reverse')
+
+--allows highlighint in comments
+--vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
