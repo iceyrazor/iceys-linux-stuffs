@@ -3,9 +3,10 @@
 
 if [ "$(pstree -pla | grep facetracker.py | sed '/grep/d')" == "" ]; then
     printf "starting facetrack.py\n"
+    printf "" > data.txt
     cd ~/stuff/manual-programs/OpenSeeFace
     source env/bin/activate
-    nohup python facetracker.py -c 0 -W 1280 -H 720 --discard-after 0 --scan-every 0 --no-3d-adapt 1 --max-feature-updates 900 > /dev/null 2> /dev/null < /dev/null & disown
+    nohup python facetracker.py -c 0 -W 1280 -H 720 --discard-after 0 --scan-every 0 --no-3d-adapt 1 --max-feature-updates 900 --log-output data.txt > /dev/null 2> /dev/null < /dev/null & disown
 fi
 
 if [ "$(pstree -pla | grep VSeeFace.exe | sed '/grep/d')" == "" ]; then

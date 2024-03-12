@@ -51,6 +51,8 @@ alias scs="sleep 3s && ffmpeg -f x11grab -framerate 1 -video_size 1920x1200 -i :
 alias obss="sudo obs && obs & disown"
 alias urlv="cat $1 | urlview"
 
+alias obs_i="cd /home/iceyrazor/stuff/scripts/node/websocket/obs_interactions/ && node ."
+
 alias statst="echo full_stat:true > ~/stuff/scripts/stbar/config.txt"
 alias statsf="echo full_stat:false > ~/stuff/scripts/stbar/config.txt"
 
