@@ -22,6 +22,7 @@ export mcs="/home/iceyrazor/stuff/minecraft/servers/IM2/"
 export mcm="/home/iceyrazor/stuff/minecraft/modpacks/iceys-modpack-2"
 export julia=~/stuff/scripts/c/SDL/juliaset
 export bgitd="/home/iceyrazor/stuff/iceys-linux-stuffs"
+export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
 export workdir=/home/iceyrazor/stuff/scripts/c/web/basic
 
