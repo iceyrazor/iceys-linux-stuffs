@@ -31,3 +31,10 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "S", [[:%s//<Left>]])
+
+
+--[[
+vim.keymap("i","<Caps_Lock>", function()
+	
+end)
+]]
