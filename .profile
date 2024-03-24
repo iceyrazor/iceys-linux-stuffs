@@ -17,6 +17,7 @@ export BROWSER="firefox"
 export DWM_NOTIF_FILE="/home/iceyrazor/stuff/scripts/c/SDL/notif/notif.txt"
 export PREFIX=/usr
 
+#jdsakdlsa;djskl
 export h3l="/home/iceyrazor/.local/share/Steam/steamapps/compatdata/450540/pfx/drive_c/users/steamuser/Documents/My Games/H3VR/Vault/Objects"
 export mcs="/home/iceyrazor/stuff/minecraft/servers/IM2/"
 export mcm="/home/iceyrazor/stuff/minecraft/modpacks/iceys-modpack-2"
@@ -25,10 +26,11 @@ export bgitd="/home/iceyrazor/stuff/iceys-linux-stuffs"
 export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
 export wd=/home/iceyrazor/stuff/scripts/c/web/basic
-export wd2=/home/iceyrazor/stuff/scripts/node/web/meter
+export wd2=/home/iceyrazor/stuff/scripts/c/SDL/game-of-life
 
 alias ls='ls --color=auto'
 alias lss="sudo du -ah -d 1 | sort -hr"
+alias watchlss="sudo watch \"du -ah -d 1 | sort -hr\""
 alias grep='grep --color=auto'
 alias lfub=~/.local/bin/lf-gadgets/lf-ueberzug/lf-ueberzug
 alias ovim=/usr/bin/vim
