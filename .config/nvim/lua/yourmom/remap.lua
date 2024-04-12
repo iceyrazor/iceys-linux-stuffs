@@ -6,7 +6,6 @@ vim.keymap.set("n","<C-h>","<C-g>h")
 vim.keymap.set("n","<C-j>","<C-w>j")
 vim.keymap.set("n","<C-l>","<C-w>l")
 vim.keymap.set("n","<C-k>","<C-w>k")
---nnoremap S :%s//g<left><left>
 
 
 --[[vim.cmd[[
@@ -30,6 +29,7 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+--nnoremap S :%s//g<left><left>
 vim.keymap.set("n", "S", [[:%s//<Left>]])
 
 

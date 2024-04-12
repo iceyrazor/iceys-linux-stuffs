@@ -5,6 +5,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 PS1='%B%F{white}[%B%F{red}Z%B%F{magenta}%n%B%F{yellow}@%B%F{magenta}%M %B%F{cyan}%1~%B%F{white}]%B%F{default}$ '
+#PS1='%B%F{white}[%B%F{red}Z%B%F{magenta}ARCH %B%F{cyan}%1~%B%F{white}]%B%F{default}$ '
 
 source ~/.config/neoboot.sh
 source ~/.profile

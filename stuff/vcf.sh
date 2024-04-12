@@ -12,7 +12,7 @@ fi
 if [ "$(pstree -pla | grep VSeeFace.exe | sed '/grep/d')" == "" ]; then
     printf "starting VSeeFace\n"
     cd ~/.wine/drive_c/VSeeFace
-    nohup wine64 ./VSeeFace.exe > /dev/null 2> /dev/null < /dev/null & disown
+#    nohup wine64 ./VSeeFace.exe > /dev/null 2> /dev/null < /dev/null & disown
 fi
 
 printf "\n\n"

@@ -125,6 +125,16 @@ cmd vim ${{
 	nvim $f
 }}
 
+cmd Sxiv ${{
+    sxiv $f & disown
+}}
+
+cmd clipf ${{
+    printf "$f" | xclip -selection clipboard
+}}
+
 map DD trash
 map DP delete
 map V vim
+map S Sxiv
+map C clipf
