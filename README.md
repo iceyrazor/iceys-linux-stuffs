@@ -2,9 +2,6 @@
 this is just some configs and stuffs i decided to put on my github
 
 # requirements
-- for neovim
-    - packer
-- for urlview - urlview
 - for dwm
     - xorg-server
     - xorg-xinit
@@ -12,6 +9,21 @@ this is just some configs and stuffs i decided to put on my github
     - xorg-xsetroot
     - libxft
     - libxinerama
+- for surf
+    - gcr
+    - webkit2gtk
+    - optional
+        - gst-plugins-base
+        - gst-plugins-good
+        - gst-libav
+        - gstreamer
+- installing dwm, dmenu, and surf
+    - cd into respective directory
+    - sudo make clean install
+    - startx
+- for neovim
+    - packer
+- for urlview - urlview
 - terminal - rxvt-unicode
 - font - ttf-inconsolata
 - login
@@ -28,14 +40,6 @@ this is just some configs and stuffs i decided to put on my github
     - pcmanfm
 - shell
     - zsh
-- for surf
-    - gcr
-    - webkit2gtk
-    - optional
-        - gst-plugins-base
-        - gst-plugins-good
-        - gst-libav
-        - gstreamer
 - audio
     - pipewire-alsa
     - pipewire-jack
