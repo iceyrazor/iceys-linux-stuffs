@@ -1,2 +1,57 @@
 # hi
 this is just some configs and stuffs i decided to put on my github
+
+# requirements
+- for neovim
+    - packer
+- for urlview - urlview
+- for dwm
+    - xorg-server
+    - xorg-xinit
+    - xorg-xrandr
+    - xorg-xsetroot
+    - libxft
+    - libxinerama
+- terminal - rxvt-unicode
+- font - ttf-inconsolata
+- login
+    - lightdm
+    - lightdm-gtk-greeter
+- theme
+    - breeze-dark-gtk - manual download. put in usr/share/themes
+- for qt to gtk theme
+    - qt6gtk2
+    - qt5-styleplugins
+- background setter - nitrogen
+- file manager
+    - lf
+    - pcmanfm
+- shell
+    - zsh
+- for surf
+    - gcr
+    - webkit2gtk
+    - optional
+        - gst-plugins-base
+        - gst-plugins-good
+        - gst-libav
+        - gstreamer
+- audio
+    - pipewire-alsa
+    - pipewire-jack
+    - pipewire-pulse
+    - qpwgraph
+- onscreen keys - screenkey
+- compositor - picom
+- inetutils - for normal ftp
+- escrotum-git for screenshots
+- tor stuff
+    - tor
+    - torsocks
+    - nyx
+    - tor-browser
+- notifications
+    - libnotify
+    - notify-send
+- calender
+    - calcurse
