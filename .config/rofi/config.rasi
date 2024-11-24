@@ -1,0 +1,5 @@
+@theme "Arc-Dark"
+
+*{
+    background: #30303050;
+}

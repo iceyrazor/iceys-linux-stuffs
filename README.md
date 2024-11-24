@@ -1,0 +1,65 @@
+# hi
+this is just some configs and stuffs i decided to put on my github
+
+# requirements
+- for dwm or awesome
+    - xorg-server
+    - xorg-xinit
+    - xorg-xrandr
+    - xorg-xsetroot
+    - libxft
+    - libxinerama
+- for awesome extra
+    - rofi
+- for surf
+    - gcr
+    - webkit2gtk
+    - optional
+        - gst-plugins-base
+        - gst-plugins-good
+        - gst-libav
+        - gstreamer
+- installing dwm, dmenu, and surf
+    - cd into respective directory
+    - sudo make clean install
+    - startx
+- for neovim
+    - packer
+- for urlview - urlview
+- terminal
+    - primary wezterm
+    - secondary rxvt-unicode less memory usage
+- font - ttf-inconsolata
+- login
+    - lightdm
+    - lightdm-gtk-greeter
+- theme
+    - breeze-dark-gtk - manual download. put in usr/share/themes
+- for qt to gtk theme
+    - qt6gtk2
+    - qt5-styleplugins
+- background setter - nitrogen
+- file manager
+    - lf
+    - pcmanfm
+- shell
+    - zsh
+- audio
+    - pipewire-alsa
+    - pipewire-jack
+    - pipewire-pulse
+    - qpwgraph
+- onscreen keys - screenkey
+- compositor - picom
+- inetutils - for normal ftp
+- escrotum-git for screenshots
+- tor stuff
+    - tor
+    - torsocks
+    - nyx
+    - tor-browser
+- notifications
+    - libnotify
+    - notify-send
+- calender
+    - calcurse
