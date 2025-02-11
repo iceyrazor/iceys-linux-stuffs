@@ -1,5 +1,14 @@
 @theme "Arc-Dark"
 
+//background: #30303050;
 *{
-    background: #30303050;
+    background: #201f5060;
+    alternate-normal-background: #4030B060;
+    foreground: #F0C3F0;
+    border-color: #5030D0;
+    selected-normal-background: #20202060;
+}
+
+window, mainbox{
+    //border-radius: 20px;
 }

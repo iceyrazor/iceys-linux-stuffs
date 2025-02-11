@@ -1,3 +1,4 @@
+#!/bin/bash
 normal() {
     randnum=$(($RANDOM % 2))
 
@@ -21,7 +22,7 @@ laptop() {
     lsblk --filter 'NAME=~"sd[abcde]"' -o NAME,MOUNTPOINTS | lolcat -as 10000 -S 100
 }
 
-if [[ "$(cat /etc/hostname)" == "iceynethp1" ]]; then
+if [[ "$(cat /etc/hostname)" == "Witchen" ]]; then
     laptop
 else
     normal

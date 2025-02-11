@@ -4,7 +4,8 @@
     "lua/?.lua",
     "lua/?/init.lua"
   ],
-  "diagnostics.globals": ["vim"],
+  "diagnostics.globals": ["vim",
+        "endclose_tag_on_exit"],
   "workspace.checkThirdParty": false,
   "workspace.library": [
     "$VIMRUNTIME",

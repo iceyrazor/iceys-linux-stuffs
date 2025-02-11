@@ -12,10 +12,12 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent=true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.o.ignorecase = true
 
 vim.opt.updatetime = 50
 --vim.opt.colorcolumn = "80"
@@ -37,3 +39,10 @@ vim.cmd('hi StatusLine cterm=reverse')
 
 --allows highlighint in comments
 --vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
+
+
+vim.filetype.add({
+    extension = {
+        src = "greyscript"
+    }
+})

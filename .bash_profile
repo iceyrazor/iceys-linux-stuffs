@@ -15,4 +15,3 @@ fi
 
 
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-export DWM_NOTIF_FILE="/home/iceyrazor/stuff/scripts/c/SDL/notif/notif.txt"

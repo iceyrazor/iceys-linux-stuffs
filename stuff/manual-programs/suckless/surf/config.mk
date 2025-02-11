@@ -30,3 +30,4 @@ WEBEXTCFLAGS = -fPIC $(WEBEXTINC)
 
 # compiler
 #CC = c99
+CC = gcc -std=c99

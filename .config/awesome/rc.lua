@@ -18,8 +18,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-local HOMEDIR="/home/iceyrazor/"
-
+local HOMEDIR="/home/iceyrazor"
+local mpris=HOMEDIR.."/stuff/scripts/system/mpris_player_control"
 
 
 local show_desktop = false
@@ -40,6 +40,7 @@ function show_my_desktop()
 end
 
 --auto switch to tag with clients if no current clients exist in current tag
+--[[
 client.connect_signal("unmanage", function(c)
     local t = c.first_tag or awful.screen.focused().selected_tag
     for _, cl in ipairs(t:clients()) do
@@ -54,6 +55,7 @@ client.connect_signal("unmanage", function(c)
         end
     end
 end)
+]]--
 
 
 -- {{{ Error handling
@@ -98,6 +100,10 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+if awesome.hostname == "DangerNoodle" then
+    --modkey = "Mod3"
+end
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -189,7 +195,8 @@ local tasklist_buttons = gears.table.join(
                                           end),
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
-                                          end))
+                                          end)
+)
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -212,7 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[2])
-    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[2])
+    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[2])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -242,32 +249,51 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "bottom", screen = s , height = 20})
 
     -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            awful.widget.watch(HOMEDIR..'stuff/scripts/system/stbar/stbar-awesome.sh', 2),
-            mytextclock,
-            wibox.widget.systray(),
-            s.mylayoutbox,
-        },
-    }
+    if s.index==1 then
+        s.mywibox:setup {
+            layout = wibox.layout.align.horizontal,
+            { -- Left widgets
+                layout = wibox.layout.fixed.horizontal,
+                mylauncher,
+                s.mytaglist,
+                s.mypromptbox,
+            },
+            s.mytasklist, -- Middle widget
+            { -- Right widgets
+                layout = wibox.layout.fixed.horizontal,
+                mykeyboardlayout,
+                awful.widget.watch(HOMEDIR..'/stuff/scripts/system/stbar/stbar-awesome.sh', 2),
+                mytextclock,
+                wibox.widget.systray(),
+                s.mylayoutbox,
+            },
+        }
+    else
+        s.mywibox:setup {
+            layout = wibox.layout.align.horizontal,
+            { -- Left widgets
+                layout = wibox.layout.fixed.horizontal,
+                mylauncher,
+                s.mytaglist,
+                s.mypromptbox,
+            },
+            s.mytasklist, -- Middle widget
+            { -- Right widgets
+                layout = wibox.layout.fixed.horizontal,
+                mykeyboardlayout,
+                mytextclock,
+                wibox.widget.systray(),
+                s.mylayoutbox,
+            },
+        }
+    end 
 end)
 
-local month_calendar = awful.widget.calendar_popup.month()
+local month_calendar = awful.widget.calendar_popup.month({start_sunday=true})
 month_calendar:attach( mytextclock, "br" )
 --mytextclock:connect_signal("button::press",function ()
 --end)
 
-screen[2]:fake_resize(1920,0,1790,1006)
 -- }}}
 
 -- {{{ Mouse bindings
@@ -381,7 +407,33 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    awful.key({ }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+    awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
+    awful.key({ }, "XF86AudioPlay", function () awful.util.spawn(mpris.." -a PlayPause") end),
+    awful.key({ }, "XF86AudioStop", function () awful.util.spawn(mpris.." -a pause") end),
+    --awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%", false) end),
+    awful.key({ }, "XF86AudioMute", function ()
+        awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false)
+        awful.spawn.with_shell("notify-send 'mic' \"$(pactl get-source-mute @DEFAULT_SOURCE@)\"", false)
+    end),
+    --also pamixer -i 5 #to increase 5%
+    --pamixer -d 5 #to decrease 5%
+
+    awful.key({ }, "Print", function()
+        awful.spawn.with_shell("ffmpeg -f x11grab -framerate 1 -video_size 1920x1200 -i :0.0 -vframes 1 -crf 0 ~/Pictures/Screenshots/$(date '+%m-%d-%Y-%I-%M')_${RANDOM}_screenshot.jpg")
+        gears.timer.start_new(3, function()
+            naughty.notify({title="screenshot taken",text="possibly"})
+            return false -- Stop the timer after the first iteration
+        end)
+    end),
+
+    awful.key({ "Shift" }, "Print", function()
+        awful.spawn.with_shell("/bin/flameshot screen")
+    end)
 )
 
 clientkeys = gears.table.join(
@@ -401,6 +453,8 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "s",      function (c) c.sticky = not c.sticky          end,
+              {description = "toggle sticky mode", group="client"}),
     awful.key({ modkey, "Shift" }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -541,6 +595,7 @@ awful.rules.rules = {
           "MessageWin",  -- kalarm.
           "Sxiv",
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+          "nheko",
           "Wpa_gui",
           "Pcmanfm",
           "veromix",
@@ -550,6 +605,7 @@ awful.rules.rules = {
         -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "LinVAM",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -563,14 +619,16 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
+    --[[
     { rule_any = {
         class = { "Mumble", "Gajim", "vesktop" }
         },
         properties = { floating = true, screen = 2 }
     },
+    --]]
 
     { rule_any = {
-        class = { "steam_app*" }
+        class = { "steam_app*", "vesktop", "Minecraft*" }
         },
         properties = { border_width = 0 }
     }
@@ -580,6 +638,16 @@ awful.rules.rules = {
     --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
+if screen[2] then
+    screen[2]:fake_resize(1986,33,1792,1015)
+    table.insert(awful.rules.rules,
+    { rule_any = {
+            class = { "Mumble", "Gajim", "vesktop" }
+        },
+        properties = { floating = true, screen = 2 }
+    }
+)
+end
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.

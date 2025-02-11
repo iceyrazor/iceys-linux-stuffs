@@ -112,7 +112,7 @@ cmd trash ${{
   while [ "$files" ]; do
     file=${files%%;*}
 
-    mv "$(basename "$file")" ~/Trash
+    mv "$(basename "$file")" ~/.trash
     if [ "$files" = "$file" ]; then
       files=''
     else
@@ -126,11 +126,15 @@ cmd vim ${{
 }}
 
 cmd Sxiv ${{
-    sxiv $f & disown
+    nohup sxiv $f > /dev/null 2> /dev/null < /dev/null & disown
 }}
 
 cmd clipf ${{
     printf "$f" | xclip -selection clipboard
+}}
+
+cmd filebrowser ${{
+    nohup pcmanfm $f > /dev/null 2> /dev/null < /dev/null & disown
 }}
 
 map DD trash
@@ -138,3 +142,4 @@ map DP delete
 map V vim
 map S Sxiv
 map C clipf
+map P filebrowser

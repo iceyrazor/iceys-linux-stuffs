@@ -3,7 +3,7 @@ delim='|'
 
 curr_dir="$(cd "$(dirname "$0")" && pwd)"
 #wifi_device=$(cat $curr_dir/config.txt | grep wifi_device | sed 's/wifi_device://')
-wifi_device="wlp4s0"
+wifi_device="wlan0"
 # curr_dir/check_weth.sh "$cur_dir" &
 
 
@@ -32,28 +32,34 @@ if [ "$(ls /sys/class/power_supply/BAT0/)" ]; then
     echo "$delim"
 fi
 
+#mic
+
+[ "$(pactl get-source-mute @DEFAULT_SOURCE@)" == "Mute: no" ] && echo  || echo 󰍭
+
+echo "$delim"
+
 #rss
 
-echo RSS:$(newsboat -x print-unread|sed "s/\s.*//; s/Error:/IA/")
+echo  $(newsboat -x print-unread|sed "s/\s.*//; s/Error:/IA/")
 
 echo "$delim"
 
 if [ "$(cat $curr_dir/config.txt | grep full_stat)" == "full_stat:true" ]; then
 	#cpu
-	echo CPU:$(ps axch -o cmd:15,%cpu --sort=-%cpu | sed "1q")%
+	echo  $(ps axch -o cmd:15,%cpu --sort=-%cpu | sed "1q")%
 
 	echo "$delim"
 
 	#mem
-    echo Mem:$(free -mlw | grep Mem: | sed "s/Mem\:\W*[0-9]*\W*//; s/ .*//")
+    echo  $(free -mlw | grep Mem: | sed "s/Mem\:\W*[0-9]*\W*//; s/ .*//")
 	echo $(ps axch -o cmd:15,%mem --sort=-%mem | sed "1q")%
 
 else
     #cpu
-    echo CPU:$(ps axch -o cmd:15,%cpu --sort=-%cpu | sed "1q" | sed 's/.* //')%
+    echo  $(ps axch -o cmd:15,%cpu --sort=-%cpu | sed "1q" | sed 's/.* //')%
 
     #mem
-    echo Mem:$(free -mlw | grep Mem: | sed "s/Mem\:\W*[0-9]*\W*//; s/ .*//")
+    echo  $(free -mlw | grep Mem: | sed "s/Mem\:\W*[0-9]*\W*//; s/ .*//")
 
 fi
 echo "$delim"
@@ -62,7 +68,7 @@ echo "$delim"
 #echo \/$(df -h | grep /dev/nvme0n1p3 | sed "s/\/dev\/nvme0n1p3 *[0-9]*.[0-9]*. *[0-9]*.[0-9]*. *//" | sed "s/ .*//")
 
 #echo \~$(df -h | grep /dev/nvme0n1p4 | sed "s/\/dev\/nvme0n1p4 *[0-9]*.[0-9]*. *[0-9]*.[0-9]*. *//" | sed "s/ .*//")
-echo $(df -h -x=used /dev/mapper/system-root | sed '1d' | awk '{print $4}')
+echo  $(df -h -x=used /dev/mapper/artix-root | sed '1d' | awk '{print $4}'| sed 's/[^0-9]*//g')
 
 echo "$delim"
 

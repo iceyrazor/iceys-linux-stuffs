@@ -1,9 +1,9 @@
 #!/bin/bash
 extra=0
-if [ "$(cat /etc/hostname)" == "iceynethp1" ]; then
+if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     extra=1
 fi
-if [ "$(cat /etc/hostname)" == "iceyartixmain" ]; then
+if [ "$(cat /etc/hostname)" == "Witchen" ]; then
     extra=1
 fi
 
@@ -19,11 +19,15 @@ xcompmgr &
 
 if [ $extra == 1 ]; then
     if [ -z $(pgrep -f stbar.sh) ]; then
-        ~/stuff/scripts/system/stbar/stbar.sh &
+        # ~/stuff/scripts/system/stbar/stbar.sh &
+        echo hall
     fi
-    nohup pipewire &
-    nohup wireplumber &
-    nohup pipewire-pulse &
+    sleep 0.5s
+    pipewire &
+    if [ -z $(pgrep wireplumber) ]; then
+        wireplumber &
+    fi
+    pipewire-pulse &
 fi
 if [ -z $(pgrep -f newsboat-fetch.sh) ]; then
     ~/.config/dwm/newsboat-fetch.sh & 
@@ -31,5 +35,5 @@ fi
 
 if [ -z $(pgrep wezterm) ]; then
     sleep 2
-    wezterm -e ~/stuff/scripts/system/task.sh
+    wezterm -e ~/stuff/scripts/system/task.sh &
 fi

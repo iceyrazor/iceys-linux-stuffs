@@ -10,6 +10,10 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/vim-be-good'
     use 'ThePrimeagen/harpoon'
 
+    use 'm4xshen/hardtime.nvim'
+
+    use 'rcarriga/nvim-notify'
+
     use { "rose-pine/neovim", as = "rose-pine" }
 
     use {
@@ -19,6 +23,17 @@ return require('packer').startup(function(use)
     }
 
     use("mbbill/undotree")
+
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use({ "NStefan002/screenkey.nvim", tag = "*" })
+
+    use("catgoose/nvim-colorizer.lua")
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        --requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
 --[[
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate',
@@ -50,6 +65,4 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},
         }
     }
-    
-
 end)

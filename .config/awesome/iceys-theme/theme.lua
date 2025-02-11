@@ -80,6 +80,9 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 theme.menu_submenu_icon = themes_path.."submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
+theme.notification_bg = "#222222"
+theme.notification_border_color = theme.border_focus
+theme.notification_font = "inconsolata regular 15"
 
 -- You can add as many variables as
 -- you wish and access them by using

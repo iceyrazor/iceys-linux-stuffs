@@ -1,3 +1,10 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "src",
+  callback = function()
+    print("LSP should now be active for src files")
+  end,
+})
+
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
@@ -32,14 +39,33 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+
+local lsp_configurations = require('lspconfig.configs')
+
+if not lsp_configurations.greybel then
+  lsp_configurations.greybel = {
+    default_config = {
+        cmd = { "/bin/greybel-languageserver", "--stdio" },
+        filetypes = { "greyscript" },
+        root_dir = require('lspconfig.util').root_pattern(".git", vim.fn.getcwd()),
+        settings = {},
+    }
+  }
+end
+
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-require('mason').setup({})
+require('mason').setup({
+    registries = {
+        "github:mason-org/mason-registry",
+    },
+})
 require('mason-lspconfig').setup({
-  ensure_installed = {},
+  ensure_installed = { },
   handlers = {
     lsp.default_setup,
   },
 })
+require('lspconfig').greybel.setup({})
 
 lsp.setup()

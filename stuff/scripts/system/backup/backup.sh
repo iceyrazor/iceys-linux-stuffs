@@ -15,11 +15,13 @@ fsyncb () {
     fi
 }
 
-syncfile="stuff .bash_profile .bashrc .surf .wezterm.lua .tmux.conf .gtkrc-2.0 .profile .urlview .vimrc .xinitrc .Xresources .zshrc .newsboat .gnupg .ssh .local/bin/lf-gadgets .config/dwm .config/awesome .config/gtk-3.0 .config/rofi .config/lf .config/picom.conf .config/nvim .config/screenkey.json .config/vesktop/themes .keepass .config/Pinta"
+syncfile="stuff .bash_profile .bashrc .surf/styles .wezterm.lua .tmux.conf .gtkrc-2.0 .profile .urlview .vimrc .xinitrc .Xresources .zshrc .p10k.zsh .newsboat .gnupg .ssh .local/bin/lf-gadgets .config/dwm .config/awesome .config/wlxoverlay .config/vesktop/themes .config/gtk-3.0 .config/rofi .config/lf .config/mutt .config/zsh .config/picom.conf .config/nvim .config/atuin .config/screenkey.json .config/vesktop/themes .keepass .config/Pinta .local/share/applications/custom"
 
-#sync game stuff
+# se shit
+syncfile="$syncfile /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Blueprints /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/IngameScripts /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Saves"
+
 target="/home/iceyrazor/mnt-backups/LINUX FILES/home/iceyrazor"
-exclude="--exclude **/cc-survival --exclude node_modules --exclude dontsync --exclude **/iceys-linux-stuffs"
+exclude="--exclude node_modules --exclude node_modules_23 --exclude dontsync --exclude **/iceys-linux-stuffs --exclude **/target --exclude LinVAM/pyenv"
 
 
 fsynca
@@ -27,4 +29,3 @@ fsynca
 printf "==CC-survival unsynced\n\n"
 
 fsyncb
-
