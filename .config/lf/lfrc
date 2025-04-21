@@ -130,6 +130,25 @@ cmd Sxiv ${{
 }}
 
 cmd clipf ${{
+    # printf "$f" | xclip -selection clipboard
+    # xclip -selection clipboard -t "$(file -b --mime-type $f)" -i $f
+    # echo -n '$f' | xclip -sel clip -t text/uri-list -i
+case "$(file -b --mime-type $f)" in
+image/png|image/jpeg|image/gif)
+    xclip -selection clipboard -t image/png -i $f
+    ;;
+video/mp4)
+    # !! doesnt work. no clue how todo uri-list. ICCCM section 2.6.2 is confusing
+    # echo -n '$f' | xclip -selection clipboard -t x-special/gnome-copied-files -i
+    xclip -selection clipboard -t text/uri-list -i $f
+    ;;
+*)
+    xclip -selection clipboard -t "$(file -b --mime-type $f)" -i $f
+    ;;
+esac
+}}
+
+cmd clip-path ${{
     printf "$f" | xclip -selection clipboard
 }}
 
@@ -142,4 +161,8 @@ map DP delete
 map V vim
 map S Sxiv
 map C clipf
+map <c-c> clip-path
 map P filebrowser
+
+
+set icons true

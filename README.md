@@ -1,5 +1,6 @@
 # hi
 this is just some configs and stuffs i decided to put on my github
+eg my dotfiles
 
 # requirements
 - for dwm or awesome
@@ -22,23 +23,27 @@ this is just some configs and stuffs i decided to put on my github
 - installing dwm, dmenu, and surf
     - cd into respective directory
     - sudo make clean install
-    - startx
+    - startx #for dwm
 - for neovim
     - packer
 - for urlview - urlview
 - terminal
     - primary wezterm
-    - secondary rxvt-unicode less memory usage
+    - secondary rxvt-unicode # less memory usage
+- ibus
+    - ibus-mozc # for japanese input
 - font - ttf-inconsolata
 - login
     - lightdm
     - lightdm-gtk-greeter
+- lxappearance # for setting gtk theme
 - theme
-    - breeze-dark-gtk - manual download. put in usr/share/themes
+    - Amy-Dark-GTK # manual download. put in usr/share/themes
 - for qt to gtk theme
     - qt6gtk2
-    - qt5-styleplugins
+    - qt5gtk2
 - background setter - nitrogen
+- numen # voice control, manual setup
 - file manager
     - lf
     - pcmanfm
@@ -50,9 +55,14 @@ this is just some configs and stuffs i decided to put on my github
     - pipewire-pulse
     - qpwgraph
 - onscreen keys - screenkey
-- compositor - picom
+- compositor 
+    - xcompmgr # primarily
+    - picom # for fancy ness
 - inetutils - for normal ftp
-- escrotum-git for screenshots
+- screenshots
+    - flameshot #higher rez than ffmpeg
+    - ffmpeg
+    - not really escrotum-git
 - tor stuff
     - tor
     - torsocks

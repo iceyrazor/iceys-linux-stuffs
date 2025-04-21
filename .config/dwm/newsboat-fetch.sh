@@ -9,6 +9,7 @@ newsboat_loop(){
     if (( $unreadnum > 0 )); then
         notify-send "newsboat feed" "$unreads"
     fi
+    notify-send "Vitamins!" "take them"
     sleep 2h
     newsboat_loop
 }

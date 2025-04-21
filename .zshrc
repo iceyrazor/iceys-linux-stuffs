@@ -2,6 +2,8 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
+~/stuff/scripts/system/neoboot.sh
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -26,9 +28,17 @@ function vi-yank-xclip {
 zle -N vi-yank-xclip
 bindkey -M vicmd ' y' vi-yank-xclip
 
-source ~/.profile
+#fzf search
+source <(fzf --zsh)
+
+source ~/.config/.profile
 #bash --login -i -c 'source ~/.profile'
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+
+# bindkey -a h backward-char
+# bindkey -a i forward-char
+# bindkey -a n down-history
+# bindkey -a e up-history
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -3,10 +3,11 @@ normal() {
     randnum=$(($RANDOM % 2))
 
     if [ "$randnum" == "1" ]; then
-        # fastfetch --localip-show-ipv4 0 # | lolcat -as 10000 -S 100
-        fortune | cowsay -f fox | lolcat
+        fastfetch --localip-show-ipv4 0 | lolcat -S 100 # | lolcat -as 10000 -S 100
+        # fortune | cowsay -f fox | lolcat
     else
-        fortune | cowsay -f dragon | lolcat
+        # fortune | cowsay -f dragon | lolcat
+        uwufetch | lolcat
     fi
     printf "\n--------------------------------------------------------\n" | lolcat
     lsblk --filter 'NAME=~"sd[abcde]"' -o NAME,MOUNTPOINTS | lolcat

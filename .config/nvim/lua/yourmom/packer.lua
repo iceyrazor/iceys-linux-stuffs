@@ -16,6 +16,8 @@ return require('packer').startup(function(use)
 
     use { "rose-pine/neovim", as = "rose-pine" }
 
+    use "jbyuki/quickmath.nvim"
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
