@@ -32,13 +32,16 @@ eg my dotfiles
     - secondary rxvt-unicode # less memory usage
 - ibus
     - ibus-mozc # for japanese input
-- font - ttf-inconsolata
+- fonts 
+    - ttf-inconsolata
+    - ttf-jetbrains-mono-nerd
+    - otf-ipafont
 - login
     - lightdm
     - lightdm-gtk-greeter
 - lxappearance # for setting gtk theme
 - theme
-    - Amy-Dark-GTK # manual download. put in usr/share/themes
+    - Amy-Dark-GTK # manual download. put in /usr/share/themes
 - for qt to gtk theme
     - qt6gtk2
     - qt5gtk2
