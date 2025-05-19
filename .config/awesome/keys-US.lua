@@ -101,7 +101,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "d", function () os.execute("rofi -show drun") end, {description = "rofi drun", group = "launcher"}),
+    awful.key({ modkey }, "d", function () os.execute("rofi -x11 -show drun") end, {description = "rofi drun", group = "launcher"}),
+    awful.key({ modkey , "Shift" }, "d", function () os.execute("echo \"\" | rofi -x11 -dmenu -p 'Search' | xargs -I{} xdg-open 'https://searx.iceyfox.xyz/search?q={}'") end, {description = "rofi search", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()

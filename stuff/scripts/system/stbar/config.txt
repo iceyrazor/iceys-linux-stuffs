@@ -1,2 +1,1 @@
 full_stat:false
-wifi_device:wlo1

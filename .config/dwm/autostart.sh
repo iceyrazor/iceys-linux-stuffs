@@ -32,8 +32,28 @@ fi
 if [ -z $(pgrep -f newsboat-fetch.sh) ]; then
     ~/.config/dwm/newsboat-fetch.sh & 
 fi
+if [ -z $(pgrep -f lessons-loop.sh) ]; then
+    ~/.config/dwm/lessons-loop.sh & 
+fi
 
 if [ -z $(pgrep wezterm) ]; then
     sleep 2
     wezterm -e ~/stuff/scripts/system/task.sh &
+fi
+
+if [ "$(cat /etc/hostname)" == "Kasino" ]; then
+    if [ -z "$(pgrep vesktop)" ]; then
+        sleep 2s
+        vesktop & disown
+    fi
+
+    if [ -z "$(pgrep gajim)" ]; then
+        sleep 2s
+        gajim & disown
+    fi
+
+    if [ -z "$(pgrep steam)" ]; then
+        sleep 3s
+        steam & disown
+    fi
 fi

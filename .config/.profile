@@ -35,13 +35,16 @@ export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
 alias fukn="sudo $@"
 alias ls='ls --color=auto'
-alias lss="fukn du -ah -d 1 | sort -hr"
+alias lss="fukn du -ahd 1 | sort -hr"
 alias lsu="lsblk --filter 'NAME=~\"sd[abcde]\"' -o NAME,MOUNTPOINTS"
 alias surf="WEBKIT_DISABLE_COMPOSITING_MODE=1 surf"
 alias lsblkfs="lsblk -o PATH,FSTYPE,MOUNTPOINT"
 alias grep='grep --color=auto'
+# alias ffchar='fastfetch --logo ~/stuff/media/ICE/ascii-char.txt --logo-color-5 "light_magenta" --logo-color-1 "reset_black" --logo-color-2 "light_black" --logo-color-3 "light_blue"'
+alias ffcompact='fastfetch -c $HOME/.config/fastfetch/compact.jsonc'
+alias ff='fastfetch -c $HOME/.config/fastfetch/10.jsonc 2> /dev/null || fastfetch --localip-show-ipv4 0'
+alias ffchar='fastfetch -c $HOME/.config/fastfetch/ascii-char.jsonc'
 # alias fastfetch='fastfetch --localip-show-ipv4 0 --kitty-direct /home/iceyrazor/stuff/media/ICE/Sprite-0009.png --logo-width 40 --logo-height 20'
-alias fastfetch='fastfetch --localip-show-ipv4 0'
 [ "$(cat /etc/hostname)" = "Kasino" ] && alias fukn="doas $@"
 [ "$(cat /etc/hostname)" = "Kan" ] && alias fukn="doas $@"
 alias numen="echo key x | fukn dotool && NUMEN_DMENU=rofi NUMEN_DMENU_OPTS='-show drun' LD_LIBRARY_PATH=/usr/lib/ numen & disown"
@@ -100,7 +103,8 @@ alias scs="sleep 3s && ffmpeg -f x11grab -framerate 1 -video_size 1920x1200 -i :
 alias wwrite="watch -d grep -e Dirty: -e Writeback: /proc/meminfo"
 alias gol="~/stuff/scripts/c/SDL/game-of-life/game-of-life & disown"
 
-alias vrinit="echo key x | fukn dotool && drkwll && killall xcompmgr && sleep 1s && wlx-layout.sh main"
+alias vrinit="echo key x | fukn dotool && drkwll && killall xcompmgr; sleep 1s && wlx-layout.sh main; \ 
+sleep 2s && tmux new-session -s chat-loop -c stuff/scripts/rust/chat-loop"
 
 
 alias statst="echo full_stat:true > ~/stuff/scripts/system/stbar/config.txt"

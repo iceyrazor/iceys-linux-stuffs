@@ -2,8 +2,8 @@ local wezterm = require 'wezterm'
 local config = {}
 local act = wezterm.action
 config.default_prog = { 'zsh', '-l' } --config.font = wezterm.font 'Classic Console' config.font_size = 15 config.font = wezterm.font 'Source Code Pro'
-config.show_tabs_in_tab_bar = false
-config.enable_tab_bar = false
+config.show_tabs_in_tab_bar = true
+config.enable_tab_bar = true
 --config.font = wezterm.font 'CozetteVector'
 config.font = wezterm.font_with_fallback {
     --'B612',

@@ -3,10 +3,11 @@
 //background: #30303050;
 *{
     background: #201f5060;
-    alternate-normal-background: #4030B060;
+    alternate-normal-background: #3020B060;
+    normal-background: #20109060;
     foreground: #F0C3F0;
     border-color: #5030D0;
-    selected-normal-background: #20202060;
+    selected-normal-background: #10104060;
 }
 
 window, mainbox{

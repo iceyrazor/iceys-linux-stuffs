@@ -216,81 +216,129 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-awful.screen.connect_for_each_screen(function(s)
+awful.screen.connect_for_each_screen(function(screen)
     -- Wallpaper
-    set_wallpaper(s)
+    set_wallpaper(screen)
 
     -- Each screen has its own tag table.
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[2])
     --awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[2])
-    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[2])
+    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, screen, awful.layout.layouts[2])
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
+    screen.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
+    screen.mylayoutbox = awful.widget.layoutbox(screen)
+    screen.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
-        screen  = s,
+    screen.mytaglist = awful.widget.taglist {
+        screen  = screen,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
     }
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
+    screen.mytasklist = awful.widget.tasklist {
+        screen  = screen,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
     }
 
+
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s , height = 20})
+    screen.mywibox = awful.wibar({ position = "bottom", screen = screen , height = 20, width = 1500, y = screen.geometry.height - 24 - 500})
+    awful.placement.bottom(screen.mywibox, { margins = { bottom = 2, top = 20 } })
+
+
+    local spacer = wibox.widget.textbox("  ")
+    local spacerbg = wibox.widget.textbox("  ")
+    local spacerbg= wibox.widget.background(spacerbg)
+    spacerbg.bg = beautiful.bg_normal
+
+    screen.mywibox.bg = beautiful.wibar_background
+    screen.mywibox.ontop = true
+    screen.mywibox.floating = false
+
+    local mykeyboardlayout = wibox.widget.background(mykeyboardlayout)
+    mykeyboardlayout.bg = beautiful.bg_normal
+
+    local myLayoutBox = wibox.widget.background(screen.mylayoutbox)
+    myLayoutBox.bg = beautiful.bg_normal
+
+    local mytextclock = wibox.widget.background(mytextclock)
+    mytextclock.bg = beautiful.bg_normal
 
     -- Add widgets to the wibox
-    if s.index==1 then
-        s.mywibox:setup {
+    if screen.index==1 then
+        local stbar = awful.widget.watch(HOMEDIR..'/stuff/scripts/system/stbar/stbar-awesome.sh', 2)
+        local stbar = wibox.widget.background(stbar)
+        stbar.bg = beautiful.bg_normal
+
+        screen.mywibox:setup {
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                mylauncher,
-                s.mytaglist,
-                s.mypromptbox,
+                -- mylauncher,
+                screen.mytaglist,
+                screen.mypromptbox,
+                spacer,
             },
-            s.mytasklist, -- Middle widget
+            screen.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+                spacer,
                 mykeyboardlayout,
-                awful.widget.watch(HOMEDIR..'/stuff/scripts/system/stbar/stbar-awesome.sh', 2),
+                stbar,
                 mytextclock,
+                spacerbg,
+                spacer,
+                spacerbg,
                 wibox.widget.systray(),
-                s.mylayoutbox,
+                spacerbg,
+                spacer,
+                myLayoutBox,
             },
         }
     else
-        s.mywibox:setup {
+        screen.mywibox:setup {
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                mylauncher,
-                s.mytaglist,
-                s.mypromptbox,
+                -- mylauncher,
+                screen.mytaglist,
+                screen.mypromptbox,
             },
-            s.mytasklist, -- Middle widget
+            screen.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 mykeyboardlayout,
                 mytextclock,
-                wibox.widget.systray(),
-                s.mylayoutbox,
+                -- wibox.widget.systray(),
+                screen.mylayoutbox,
             },
         }
     end 
+
+
+    -- Add widgets to the wibox
+    --[[
+    if s.index == 1 then
+        local new_wi = awful.wibar({ position = "bottom", screen = 1 , width = 200, height = 20})
+        new_wi:setup {
+            layout = wibox.layout.align.horizontal,
+            { -- Left widgets
+                layout = wibox.layout.fixed.horizontal,
+                -- mylauncher,
+                mytextclock,
+            }
+        }
+    end
+    ]]--
 end)
 
 local month_calendar = awful.widget.calendar_popup.month({start_sunday=true})
@@ -438,6 +486,17 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
+
+screen[1]:connect_signal("request::geometry", function(s)
+    -- Recalculate the workarea height
+    -- s.workarea.height = s.geometry.height - 100
+    gears.debug.print_error("Workarea height: " .. tostring(s.workarea.height))
+    naughty.notify({ title = "Oops, there were errors during startup!",
+                     text = 'djsakldsaujsaiodsjugfa89rdfjg489ejt' })
+    -- You can also recalculate s.workarea.y if you want to fine-tune vertical placement
+    -- awful.layout.arrange(s)
+end)
+awful.layout.suit.tile.master_width_factor = 0.5
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)

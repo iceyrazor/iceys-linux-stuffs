@@ -16,12 +16,14 @@ theme.font          = "inconsolata regular 10"
 
 --#8558e6
 
-theme.bg_normal     = "#432990"
+theme.bg_normal     = "#222222" --#432990
 theme.bg_focus      = "#453996"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#111111"
 theme.bg_systray    = theme.bg_normal
 theme.tasklist_bg_normal = "#222222"
+theme.wibar_background = "#00000000"
+--theme.wibar_background = theme.bg_normal
 
 --[[
 theme.bg_normal     = "#432990"
@@ -31,7 +33,7 @@ theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 --]]
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#dddddd" --#aaaaaa
 theme.fg_focus      = "#eeeeee"
 theme.fg_urgent     = "#eeeeee"
 theme.fg_minimize   = "#eeeeee"
