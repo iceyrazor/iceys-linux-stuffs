@@ -25,7 +25,9 @@ fi
 # . torsocks on
 export PROMPT_EOL_MARK=""
 export EDITOR="nvim"
-export BROWSER="/home/iceyrazor/.local/bin/zen-x86_64.AppImage"
+# idk which one works
+# export BROWSER="/home/iceyrazor/.local/bin/zen-x86_64.AppImage"
+export BROWSER="zen.desktop"
 export PREFIX=/usr
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/stuff/scripts/system:$HOME/stuff/scripts/system/backup:$HOME/stuff/scripts/system/wlx:$HOME/stuff/scripts/system/youtube-playlist-cli:$HOME/.local/bin/blender-4.1.1-linux-x64:$HOME/stuff/manual-programs/app-images"
 export MANPAGER='nvim +Man!'
@@ -82,7 +84,9 @@ alias pipes="pipes.sh -t 0 -p 3 -f 30 -r 2000"
 
 alias bri="fukn ~/stuff/scripts/system/bri.sh"
 # alias drkwll="nitrogen --head=0 --set-zoom-fill ~/stuff/media/gallifreyan/linux2.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/gallifreyan/linux2.png"
-alias drkwll="nitrogen --head=0 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png"
+# alias drkwll="nitrogen --head=0 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png"
+alias drkwll="[ -z $WAYLAND_DISPLAY ] && nitrogen --head=0 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png || hyprctl hyprpaper wallpaper 'HDMI-A-1,/home/iceyrazor/stuff/media/wallpapers/dark_leaves.png' && hyprctl hyprpaper wallpaper 'DP-1,/home/iceyrazor/stuff/media/wallpapers/dark_leaves.png'"
+alias reswll="hyprctl hyprpaper wallpaper 'HDMI-A-1,/home/iceyrazor/stuff/media/wallpapers/4500025-retrowave-vaporwave-car-typography-purple-blue-chromatic-aberration-initial-d-hachi-roku.jpg' && hyprctl hyprpaper wallpaper 'DP-1,/home/iceyrazor/stuff/media/wallpapers/tumblr_06bbd355f3e355049446dac24f6e7c44_2c486f77_1280 ninesols.jpg'"
 
 # mounting
 alias umsu="fukn umount u"

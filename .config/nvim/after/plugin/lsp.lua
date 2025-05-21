@@ -16,12 +16,16 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = cmp.mapping.preset.insert({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ['<C-i>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
 cmp.setup({
-	mapping = cmp_mappings
+	mapping = cmp_mappings,
+})
+
+vim.diagnostic.config({
+    virtual_text = true,
 })
 
 lsp.on_attach(function(client, bufnr)

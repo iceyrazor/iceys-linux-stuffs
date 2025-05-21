@@ -6,13 +6,17 @@ echo $url
 
 choices="
 clipboard
-firefox
+zen
 "
 
 choice=$(echo "$choices" | sed /^$/d | rofi -dmenu "$prompt_message")
 
 if [ "$choice" == "clipboard" ]; then
-	printf "$url" | xclip -selection clipboard
+    if [ -z $WAYLAND_DISPLAY ]; then
+        printf "$url" | xclip -selection clipboard
+    else
+        printf "$url" | wl-copy
+    fi
 else
 	$choice "$url"
 fi

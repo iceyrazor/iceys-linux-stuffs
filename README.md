@@ -11,7 +11,7 @@ eg my dotfiles
     - libxft
     - libxinerama
 - for awesome extra
-    - rofi
+    - rofi-wayland (works on x. my rofi command on awesome is rofi -x11 so this may be required)
 - for surf
     - gcr
     - webkit2gtk
@@ -24,6 +24,14 @@ eg my dotfiles
     - cd into respective directory
     - sudo make clean install
     - startx #for dwm
+- hyprland
+    - wayland
+    - waybar
+    - grim # needed for flameshot to work on wayland
+    - xdg-deskop=portal
+    - xdg-deskop=portal-hyprland
+    - xdg-deskop=portal-gtk
+    - hyprpaper
 - for neovim
     - packer
 - for urlview - urlview
@@ -33,10 +41,13 @@ eg my dotfiles
 - ibus
     - ibus-mozc # for japanese input
 - fonts 
+    - B612 mono
     - ttf-inconsolata
+    - ttf-jetbrains-mono
     - ttf-jetbrains-mono-nerd
     - otf-ipafont
 - login
+    - sddm (for hyprland. it doesnt like lightdm :<)
     - lightdm
     - lightdm-gtk-greeter
 - lxappearance # for setting gtk theme
@@ -45,7 +56,7 @@ eg my dotfiles
 - for qt to gtk theme
     - qt6gtk2
     - qt5gtk2
-- background setter - nitrogen
+- background setter - nitrogen # for x11
 - numen # voice control, manual setup
 - file manager
     - lf
@@ -61,7 +72,7 @@ eg my dotfiles
 - compositor 
     - xcompmgr # primarily
     - picom # for fancy ness
-- inetutils - for normal ftp
+- inetutils # for normal ftp
 - screenshots
     - flameshot #higher rez than ffmpeg
     - ffmpeg
@@ -74,5 +85,6 @@ eg my dotfiles
 - notifications
     - libnotify
     - notify-send
+    - dusnt # for hyprland
 - calender
     - calcurse
