@@ -1,0 +1,82 @@
+! black
+*.color0: #263640
+*.color8: #4a697d
+
+! red
+*.color1: #d12f2c
+*.color9: #fa3935
+
+! green
+*.color2: #819400
+*.color10: #a4bd00
+
+! yellow
+*.color3: #b08500
+*.color11: #d9a400
+
+! blue
+*.color4: #2587cc
+*.color12: #09a2f5
+
+! magenta
+*.color5: #696ebf
+*.color13: #8086e8
+
+! cyan
+*.color6: #289c93
+*.color14: #00c5ba
+
+! white
+*.color7: #bfbaac
+*.color15: #fdf6e3
+
+Sxiv.background: #303030
+Sxiv.foreground: #00C0FF
+Sxiv.font: Hack-9
+
+!tabs
+!*.tabbed.tabbar-fg: 2
+!*.tabbed.tabbar-bg: 0
+!*.tabbed.tab-fg: 3
+!*.tabbed.tab-bg: 1
+
+!*.highlightColor: #bdbdbd
+!*.highlightTextColor: #000000
+
+!start size
+!URxvt.geometry: 120x30
+URxvt.scrollBar: false
+
+
+URxvt.transparent: true
+URxvt.depth: 10
+URxvt.shading: 110
+!URxvt.font: xft:cousine:size=12
+URxvt.font: xft:Inconsolata-Regular:size=10
+URxvt.foreground: #e6e6e6
+URxvt.background: #000000
+
+URxvt.tintColor: [100]#111111
+URxvt.cursorColor: #fabd2f
+
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
+
+/*
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+*/
+URxvt.iso14755: false
+!URxvt.perl-ext-common: default,resize-font
+!URxvt.perl-ext-common: default,resize-font,-tabbed
+URxvt.perl-ext-common: default
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+!URxvt.keysym.C-j: resize-font:smaller
+!URxvt.keysym.C-k: resize-font:bigger
+!URxvt.keysym.C-equal: resize-font:reset

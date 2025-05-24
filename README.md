@@ -2,6 +2,10 @@
 this is just some configs and stuffs i decided to put on my github
 eg my dotfiles
 
+# update 05/24/2025
+i liked how primagen did his dev environment and deploying of scripts. so im making my own version
+note: the pacman install scripts may not be fully what i have as i made this loong after installing software
+
 # requirements
 - for dwm or awesome
     - xorg-server
@@ -88,3 +92,7 @@ eg my dotfiles
     - dusnt # for hyprland
 - calender
     - calcurse
+
+# todo
+- deploy
+- seperate installs into more scripts to have different steps in requirements. probably wont do this
