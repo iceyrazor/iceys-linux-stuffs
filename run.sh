@@ -1,8 +1,8 @@
 #!/bin/bash
-[ "$ENV_DIR" == "" ] && export ENV_DIR=$HOME
-[ ! -d "$ENV_DIR" ] && echo ENV_DIR DOES NOT EXIST && exit 1
+[ "$DEV_ENV" == "" ] && export DEV_ENV=$HOME
+[ ! -d "$DEV_ENV" ] && echo DEV_ENV DOES NOT EXIST && exit 1
 
-echo ENV_DIR "$ENV_DIR"
+echo DEV_ENV "$DEV_ENV"
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
