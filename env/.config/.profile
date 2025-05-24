@@ -23,6 +23,7 @@ fi
 #fi
 
 # . torsocks on
+export DEV_ENV=~
 export PROMPT_EOL_MARK=""
 export EDITOR="nvim"
 # idk which one works
@@ -73,6 +74,7 @@ alias ygg="fukn bash -c 'mkdir /var/run/yggdrasil; yggdrasil -useconf < /etc/ygg
 alias alvr="WINIT_X11_SCALE_FACTOR=\"1\" /home/iceyrazor/stuff/manual-programs/dontsync/alvr_streamer_linux/bin/alvr_dashboard & disown"
 alias obss="obs && obs --enable-media-stream & disown"
 alias get_channel_id="xargs curl -s | grep -Eo 'channel_id=.{0,50}' | sed 's/\".*//g' | fzf | xargs printf \"https://www.youtube.com/feeds/videos.xml?%s\" | xclip -selection clipboard"
+alias dev-run="~/stuff/scripts/iceys-linux-stuffs/run.sh"
 
 alias killa="~/stuff/killall.sh"
 alias bbackup="~/stuff/scripts/system/backup/backup.sh"

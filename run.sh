@@ -1,8 +1,7 @@
 #!/bin/bash
-[ "$DEV_ENV" == "" ] && export DEV_ENV=$HOME
-[ ! -d "$DEV_ENV" ] && echo DEV_ENV DOES NOT EXIST && exit 1
-
 echo DEV_ENV "$DEV_ENV"
+[ ! -d "$DEV_ENV" ] && echo DEV_ENV DIRECTORY IS NOT FOUND && exit 1
+
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 

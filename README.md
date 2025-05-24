@@ -94,5 +94,6 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - calcurse
 
 # todo
-- deploy
+- add rest of files
+- make fully portable version?
 - seperate installs into more scripts to have different steps in requirements. probably wont do this
