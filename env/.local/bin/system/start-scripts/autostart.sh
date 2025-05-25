@@ -33,6 +33,10 @@ fi
 pipewire-pulse & disown
 sleep 0.5s
 
+if [ "$WAYLAND_SESSION" ]; then
+    waybar & disown
+fi
+
 if [ -z $(pgrep -f newsboat-fetch.sh) ]; then
     ~/.config/dwm/newsboat-fetch.sh & 
 fi

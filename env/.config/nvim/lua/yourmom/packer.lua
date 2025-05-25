@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     use '3rd/image.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim', tag = '0.1.8', -- 0.1.5
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }

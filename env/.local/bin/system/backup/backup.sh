@@ -15,13 +15,13 @@ fsyncb () {
     fi
 }
 
-syncfile="stuff .bash_profile .bashrc .surf/styles .gtkrc-2.0 .urlview .vimrc .xinitrc .Xresources .zshrc .p10k.zsh .gnupg .ssh .local/bin/lf-gadgets .config/dwm .config/wezterm .config/.profile .config/tmux .config/wireplumber .config/FreeTube .config/awesome .config/wlxoverlay .config/newsboat .var/app/dev.vencord.Vesktop/config/vesktop/themes .config/fastfetch .config/gtk-3.0 .config/rofi .config/lf .config/mutt .config/zsh .config/picom.conf .config/nvim .config/atuin .config/screenkey.json .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .config/hypr .config/waybar .local/share/applications/custom .local/share/osu"
+syncfile="stuff .surf/styles .gnupg .ssh .local/bin/lf-gadgets .config/wireplumber .config/FreeTube .config/wlxoverlay .config/newsboat .var/app/dev.vencord.Vesktop/config/vesktop/themes .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .local/share/applications/custom .local/share/osu"
 
 # se shit
 syncfile="$syncfile /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Blueprints /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/IngameScripts /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Saves"
 
 target="/home/iceyrazor/mnt-backups/LINUX FILES/home/iceyrazor"
-exclude="--exclude node_modules --exclude node_modules_23 --exclude dontsync --exclude **/iceys-linux-stuffs --exclude **/target --exclude LinVAM/pyenv"
+exclude="--exclude node_modules --exclude node_modules_23 --exclude dontsync --exclude **/target --exclude LinVAM/pyenv"
 
 fsynca
 
