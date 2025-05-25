@@ -30,7 +30,8 @@ export EDITOR="nvim"
 # export BROWSER="/home/iceyrazor/.local/bin/zen-x86_64.AppImage"
 export BROWSER="zen.desktop"
 export PREFIX=/usr
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/stuff/scripts/system:$HOME/.local/bin/system:$HOME/.local/bin/system/backup:$HOME/stuff/scripts/system/backup:$HOME/stuff/scripts/system/wlx:$HOME/stuff/scripts/system/youtube-playlist-cli:$HOME/.local/bin/blender-4.1.1-linux-x64:$HOME/stuff/manual-programs/app-images:$HOME/stuff/scripts/system/theme-setter"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin/blender-4.1.1-linux-x64"
+source .local/bin/system/paths.sh
 export MANPAGER='nvim +Man!'
 # export DWM_NOTIF_FILE="/home/iceyrazor/stuff/scripts/c/SDL/notif/notif.txt"
 

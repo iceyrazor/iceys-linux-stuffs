@@ -94,7 +94,9 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - calcurse
 
 # todo
+- deploy system folder? or just add keep/system directory to path. tis the question.
+    - probably will deploy.
 - make 3rd env so first is minimal????
 - add rest of files
-- make fully portable version?
+- make fully portable version, all pulled and compiled version bins for just devtools.
 - seperate installs into more scripts to have different steps in requirements. probably wont do this
