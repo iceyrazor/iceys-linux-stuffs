@@ -31,7 +31,7 @@ export EDITOR="nvim"
 export BROWSER="zen.desktop"
 export PREFIX=/usr
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin/blender-4.1.1-linux-x64"
-source .local/bin/system/paths.sh
+source ~/.local/bin/system/paths.sh
 export MANPAGER='nvim +Man!'
 # export DWM_NOTIF_FILE="/home/iceyrazor/stuff/scripts/c/SDL/notif/notif.txt"
 
