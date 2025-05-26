@@ -90,7 +90,7 @@
     "clock": {
         "timezone": "America/Chicago",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%m/%d/%Y - %I:%M:%S}",
+        "format": "{:%a %m/%d/%Y %I:%M:%S}",
         "interval": 1
     },
 

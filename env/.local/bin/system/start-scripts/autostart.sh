@@ -1,4 +1,5 @@
 #!/bin/bash
+
 extra=0
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     extra=0
@@ -10,21 +11,22 @@ fi
 sleep 0.1
 xset s 0
 nitrogen --restore &
+xrdb -merge /home/iceyrazor/.Xresources &
+
 if [ $extra == 1 ]; then
     xrandr --dpi 90 &
     xrandr --output Virtual-1 --mode 1920x1080
 fi
 
-if [ -z "$WAYLAND_DISPLAY "]; then
+if [ -z "$WAYLAND_DISPLAY" ]; then
     xcompmgr &
 fi
 
-if [ $extra == 1 ]; then
-    if [ -z $(pgrep -f stbar.sh) ]; then
-        # ~/stuff/scripts/system/stbar/stbar.sh &
-        echo hall
-    fi
-fi
+# if [ $extra == 1 ]; then
+#     if [ -z $(pgrep -f stbar.sh) ]; then
+#         # ~/stuff/scripts/system/stbar/stbar.sh &
+#     fi
+# fi
 
 pipewire & disown
 if [ -z $(pgrep wireplumber) ]; then
@@ -33,7 +35,9 @@ fi
 pipewire-pulse & disown
 sleep 0.5s
 
-if [ "$WAYLAND_SESSION" ]; then
+fcitx5 -d
+
+if [ "$WAYLAND_DISPLAY" ]; then
     waybar & disown
 fi
 
@@ -48,6 +52,7 @@ if [ -z $(pgrep wezterm) ]; then
     sleep 2
     wezterm -e ~/stuff/scripts/system/task.sh &
 fi
+
 
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     if [ -z "$(pgrep vesktop)" ]; then
@@ -65,3 +70,4 @@ if [ "$(cat /etc/hostname)" == "Kasino" ]; then
         steam & disown
     fi
 fi
+

@@ -8,6 +8,7 @@ sudo="sudo"
 echo GETTING CURRENT REQS ARCH
 
 $sudo pacman -S xorg-server libxft libxinerama pipewire-pulse pipewire-alsa pipewire-jack qpwgraph wezterm ttf-inconsolata sddm wayland hyprland waybar xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk zsh vlc v4l2loopback-dkms qt6-wayland qt5-wayland ntfs-3g gnome-keyring inetutils doas cowsay fastfetch yt-dlp ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts-emoji font-manager atuin gvfs-mtp bat lxappearance cmus grim btop htop rxvt-unicode lf inetutils openrgb reflector steam rofi-wayland
+$sudo pacman -S fcitx5-im fcitx5-mozc
 
 # for vr
 $sudo pacman -S cli11 eigen glib2 glib2-devel nlohmann-json patch
