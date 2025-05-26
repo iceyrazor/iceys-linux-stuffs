@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 
 extra=0
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
@@ -42,10 +43,10 @@ if [ "$WAYLAND_DISPLAY" ]; then
 fi
 
 if [ -z $(pgrep -f newsboat-fetch.sh) ]; then
-    ~/.config/dwm/newsboat-fetch.sh & 
+    ./newsboat-fetch.sh & 
 fi
 if [ -z $(pgrep -f lessons-loop.sh) ]; then
-    ~/.config/dwm/lessons-loop.sh & 
+    ./lessons-loop.sh & 
 fi
 
 if [ -z $(pgrep wezterm) ]; then

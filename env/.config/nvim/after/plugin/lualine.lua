@@ -1,7 +1,5 @@
 local ok, lualine = pcall(require, 'lualine')
 if ok then
-    -- require('lualine').setup()
-
     local custom_gruvbox = require'lualine.themes.base16'
 
     -- Change the background of lualine_c section for normal mode
