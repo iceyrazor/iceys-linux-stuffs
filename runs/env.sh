@@ -22,7 +22,7 @@ $(find ~/stuff/scripts/system -maxdepth 2 -type d)"
         echo "adding $s to path"
         paths="$paths:$s"
     done
-    echo "export PATH=\"$paths\":" > "$DEV_ENV/.local/bin/system/paths.sh"
+    echo "export PATH=\"$paths:\"" > "$DEV_ENV/.local/bin/system/paths.sh"
     chmod u+x "$DEV_ENV/.local/bin/system/paths.sh"
 
 fi

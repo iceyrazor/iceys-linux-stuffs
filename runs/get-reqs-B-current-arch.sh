@@ -11,7 +11,7 @@ $sudo pacman -S xorg-server libxft libxinerama pipewire-pulse pipewire-alsa pipe
 $sudo pacman -S fcitx5-im fcitx5-mozc
 
 # for vr
-$sudo pacman -S cli11 eigen glib2 glib2-devel nlohmann-json patch
+$sudo pacman -S cli11 eigen glib2 glib2-devel nlohmann-json patch fcitx5-im-emoji-picker-git
 
 # git clone https://aur.archlinux.org/paru.git
 # cd paru

@@ -36,7 +36,8 @@ fi
 pipewire-pulse & disown
 sleep 0.5s
 
-fcitx5 -d
+# fcitx5 -d
+# this program running all the time causes weird key input bugs and lag. i only want to use this when typing special stuff.
 
 if [ "$WAYLAND_DISPLAY" ]; then
     waybar & disown

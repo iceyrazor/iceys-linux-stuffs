@@ -157,7 +157,7 @@
     "custom/rss": {
         "format": " {}",
         "interval": 3,
-        "exec": "/usr/bin/newsboat -x print-unread|sed 's/\\s.*//; s/Error:/IA/'"
+        "exec": "/usr/bin/newsboat -x print-unread|sed 's/\\s.*//; s/Error:/E/'"
     },
 
     "custom/disc": {
