@@ -30,7 +30,7 @@ fi
 # fi
 
 pipewire & disown
-if [ -z $(pgrep wireplumber) ]; then
+if [ -z "$(pgrep wireplumber)" ]; then
     wireplumber & disown
 fi
 pipewire-pulse & disown
@@ -39,18 +39,18 @@ sleep 0.5s
 # fcitx5 -d
 # this program running all the time causes weird key input bugs and lag. i only want to use this when typing special stuff.
 
-if [ "$WAYLAND_DISPLAY" ]; then
+if [ "$WAYLAND_DISPLAY" ] && [ -z "$(pgrep -f waybar)" ]; then
     waybar & disown
 fi
 
-if [ -z $(pgrep -f newsboat-fetch.sh) ]; then
+if [ -z "$(pgrep -f newsboat-fetch.sh)" ]; then
     ./newsboat-fetch.sh & 
 fi
-if [ -z $(pgrep -f lessons-loop.sh) ]; then
+if [ -z "$(pgrep -f lessons-loop.sh)" ]; then
     ./lessons-loop.sh & 
 fi
 
-if [ -z $(pgrep wezterm) ]; then
+if [ -z "$(pgrep wezterm)" ]; then
     sleep 2
     wezterm -e ~/stuff/scripts/system/task.sh &
 fi
