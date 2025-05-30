@@ -6,5 +6,4 @@ pids=$(ps -AO pid | awk '/stbar.sh|newsboat-fetch.sh/ {print $1}')
 echo $pids
 $(sleep 3 && xsetroot -name "") & disown
 
-sudo kill -KILL $pids
 doas kill -KILL $pids

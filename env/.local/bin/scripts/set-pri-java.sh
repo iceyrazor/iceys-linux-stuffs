@@ -1,1 +1,1 @@
-sudo renice -20 -p $(sudo pidof java)
+doas renice -20 -p $(doas pidof java)

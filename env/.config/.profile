@@ -50,6 +50,7 @@ alias ff='fastfetch -c $HOME/.config/fastfetch/10.jsonc 2> /dev/null || fastfetc
 alias ffchar='fastfetch -c $HOME/.config/fastfetch/ascii-char.jsonc'
 # alias fastfetch='fastfetch --localip-show-ipv4 0 --kitty-direct /home/iceyrazor/stuff/media/ICE/Sprite-0009.png --logo-width 40 --logo-height 20'
 [ "$(cat /etc/hostname)" = "Kasino" ] && alias fukn="doas $@"
+[ "$(cat /etc/hostname)" = "Witchen" ] && alias fukn="doas $@"
 [ "$(cat /etc/hostname)" = "Kan" ] && alias fukn="doas $@"
 alias numen="echo key x | fukn dotool && NUMEN_DMENU=rofi NUMEN_DMENU_OPTS='-show drun' LD_LIBRARY_PATH=/usr/lib/ numen & disown"
 
@@ -75,7 +76,7 @@ alias ygg="fukn bash -c 'mkdir /var/run/yggdrasil; yggdrasil -useconf < /etc/ygg
 alias alvr="WINIT_X11_SCALE_FACTOR=\"1\" /home/iceyrazor/stuff/manual-programs/dontsync/alvr_streamer_linux/bin/alvr_dashboard & disown"
 alias obss="obs && obs --enable-media-stream & disown"
 alias get_channel_id="xargs curl -s | grep -Eo 'channel_id=.{0,50}' | sed 's/\".*//g' | fzf | xargs printf \"https://www.youtube.com/feeds/videos.xml?%s\" | xclip -selection clipboard"
-alias dev-run="~/stuff/scripts/iceys-linux-stuffs/run.sh"
+alias dev="~/stuff/scripts/iceys-linux-stuffs/run.sh"
 
 alias killa="~/stuff/killall.sh"
 alias bbackup="~/stuff/scripts/system/backup/backup.sh"

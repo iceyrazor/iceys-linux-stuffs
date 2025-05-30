@@ -4,7 +4,8 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0
+    # i keep having to change this because hyprland ◔̯◔
+    monitor = 1
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
