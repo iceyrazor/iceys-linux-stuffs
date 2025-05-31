@@ -1,7 +1,7 @@
 #!/bin/bash
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-echo RUNNING ENV ALL
+echo DEPLOYING ENV ALL
 cp -r $script_dir/../env/. "$DEV_ENV"
 [ -d "$script_dir/../env_private/env/" ] && cp -r $script_dir/../env_private/env/. "$DEV_ENV"
 

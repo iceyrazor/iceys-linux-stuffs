@@ -1,7 +1,7 @@
 #!/bin/bash
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-echo RUNNING ENV
+echo DEPLOYING ENV
 
 cp -r $script_dir/../env/.bashrc "$DEV_ENV"
 cp -r $script_dir/../env/.bash_profile "$DEV_ENV"
