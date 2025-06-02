@@ -1,12 +1,15 @@
 # hi
+
 this is just some configs and stuffs i decided to put on my github
 eg my dotfiles
 
-# update 05/24/2025
+## update 05/24/2025
+
 i liked how primagen did his dev environment and deploying of scripts. so im making my own version
 note: the pacman install scripts may not be fully what i have as i made this loong after installing software
 
-# requirements
+## requirements
+
 - for dwm or awesome
     - xorg-server
     - xorg-xinit
@@ -15,7 +18,8 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - libxft
     - libxinerama
 - for awesome extra
-    - rofi-wayland (works on x. my rofi command on awesome is rofi -x11 so this may be required)
+    - rofi-wayland
+    (works on x. my rofi command on awesome is rofi -x11 so this may be required)
 - for surf
     - gcr
     - webkit2gtk
@@ -44,7 +48,7 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - secondary rxvt-unicode # less memory usage
 - ibus
     - ibus-mozc # for japanese input
-- fonts 
+- fonts
     - B612 mono
     - ttf-inconsolata
     - ttf-jetbrains-mono
@@ -73,7 +77,7 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - pipewire-pulse
     - qpwgraph
 - onscreen keys - screenkey
-- compositor 
+- compositor
     - xcompmgr # primarily
     - picom # for fancy ness
 - inetutils # for normal ftp
@@ -93,7 +97,8 @@ note: the pacman install scripts may not be fully what i have as i made this loo
 - calender
     - calcurse
 
-# todo
+## todo
+
 - deploy system folder? or just add keep/system directory to path. tis the question.
     - probably will deploy.
 - make 3rd env so first is minimal????
