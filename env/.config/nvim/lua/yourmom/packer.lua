@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     use 'rcarriga/nvim-notify'
 
     use { "rose-pine/neovim", as = "rose-pine" }
+    use { "folke/tokyonight.nvim", as = "tokyonight"}
 
     use "jbyuki/quickmath.nvim"
 

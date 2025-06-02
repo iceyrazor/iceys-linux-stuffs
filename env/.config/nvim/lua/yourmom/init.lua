@@ -22,7 +22,7 @@ vim.o.ignorecase = true
 vim.opt.updatetime = 50
 --vim.opt.colorcolumn = "80"
 --vim.cmd('colorscheme vim')
---vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme tokyonight')
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 

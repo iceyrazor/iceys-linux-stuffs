@@ -29,11 +29,12 @@ fi
 #     fi
 # fi
 
-pipewire & disown
-if [ -z "$(pgrep wireplumber)" ]; then
-    wireplumber & disown
-fi
-pipewire-pulse & disown
+# added openrc services... may go back to this later
+# pipewire & disown
+# if [ -z "$(pgrep wireplumber)" ]; then
+#     wireplumber & disown
+# fi
+# pipewire-pulse & disown
 sleep 0.5s
 
 # fcitx5 -d

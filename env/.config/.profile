@@ -26,13 +26,13 @@ fi
 export DEV_ENV=~
 export PROMPT_EOL_MARK=""
 export EDITOR="nvim"
-# idk which one works
-# export BROWSER="/home/iceyrazor/.local/bin/zen-x86_64.AppImage"
-export BROWSER="zen.desktop"
+export BROWSER="custom-zen.desktop"
 export PREFIX=/usr
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin/blender-4.1.1-linux-x64"
-source ~/.local/bin/system/paths.sh
 export MANPAGER='nvim +Man!'
+if [ -f ~/.local/bin/system/paths.sh ]; then
+    source ~/.local/bin/system/paths.sh
+fi
 
 export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
@@ -69,7 +69,7 @@ alias fman="bash -c 'compgen -c' | fzf | xargs man"
 alias etask="$EDITOR stuff/scripts/system/task.sh"
 
 
-alias music="nohup vlc /home/iceyrazor/stuff/scripts/bash/youtube-playlist-cli/title_vids > /dev/null 2> /dev/null < /dev/null & disown && cd /home/iceyrazor/stuff/scripts/bash/youtube-playlist-cli/title_vids && lfk"
+alias music="nohup vlc $YT_PLAYLIST_DIR/title_vids > /dev/null 2> /dev/null < /dev/null & disown && cd $YT_PLAYLIST_DIR/title_vids && lfk"
 alias ibuss="ibus-daemon -rxRd"
 alias ygg="fukn bash -c 'mkdir /var/run/yggdrasil; yggdrasil -useconf < /etc/yggdrasil.conf'"
 alias obss="obs && obs --enable-media-stream & disown"
