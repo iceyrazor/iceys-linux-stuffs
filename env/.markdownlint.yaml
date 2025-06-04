@@ -1,2 +1,5 @@
-MD013: false
-MD007: false
+MD013: false # max line length
+MD007: false # ul indendtation
+MD025: false # single h1 title
+MD012:
+  maximum: 2 # maximum blank lines

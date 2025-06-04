@@ -48,3 +48,15 @@ vim.filetype.add({
         src = "greyscript"
     }
 })
+
+
+-- make no file extension go to sh type
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*",
+  callback = function()
+    local fname = vim.fn.expand("%:t")
+    if not fname:find("%.") then -- no dot in filename
+      vim.bo.filetype = "sh"
+    end
+  end
+})

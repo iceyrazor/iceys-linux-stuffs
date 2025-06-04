@@ -551,4 +551,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- autostart applets
-awful.spawn.with_shell("~/.local/bin/start_scripts/autostart.sh")
+awful.spawn.with_shell("~/.local/bin/system/start_scripts/autostart.sh")

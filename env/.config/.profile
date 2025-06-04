@@ -66,7 +66,7 @@ alias vim=nvim
 alias notes="cd ~/stuff/notes && vim notes.md && cd ~"
 alias ts="~/stuff/scripts/system/tmux-sessionizer.sh"
 alias fman="bash -c 'compgen -c' | fzf | xargs man"
-alias etask="$EDITOR stuff/scripts/system/task.sh"
+alias etask="$EDITOR ~/stuff/scripts/system/task.sh"
 
 
 alias music="nohup vlc $YT_PLAYLIST_DIR/title_vids > /dev/null 2> /dev/null < /dev/null & disown && cd $YT_PLAYLIST_DIR/title_vids && lfk"
@@ -78,11 +78,6 @@ alias get_channel_id="xargs curl -s | grep -Eo 'channel_id=.{0,50}' | sed 's/\".
 alias vasm="~/stuff/manual-programs/vasm/vasm6502_oldstyle -Fbin -dotdir "
 alias pipes="pipes.sh -t 0 -p 3 -f 30 -r 2000"
 alias anim="hyprctl keyword animations:enabled "
-
-# alias drkwll="nitrogen --head=0 --set-zoom-fill ~/stuff/media/gallifreyan/linux2.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/gallifreyan/linux2.png"
-# alias drkwll="nitrogen --head=0 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png"
-alias drkwll="[ -z $WAYLAND_DISPLAY ] && nitrogen --head=0 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png && nitrogen --head=1 --set-zoom-fill ~/stuff/media/wallpapers/dark_leaves.png || hyprctl hyprpaper wallpaper 'HDMI-A-1,/home/iceyrazor/stuff/media/wallpapers/dark_leaves.png' && hyprctl hyprpaper wallpaper 'DP-1,/home/iceyrazor/stuff/media/wallpapers/dark_leaves.png'"
-alias reswll="hyprctl hyprpaper wallpaper 'HDMI-A-1,/home/iceyrazor/stuff/media/wallpapers/4500025-retrowave-vaporwave-car-typography-purple-blue-chromatic-aberration-initial-d-hachi-roku.jpg' && hyprctl hyprpaper wallpaper 'DP-1,/home/iceyrazor/stuff/media/wallpapers/tumblr_06bbd355f3e355049446dac24f6e7c44_2c486f77_1280 ninesols.jpg'"
 
 # mounting
 alias umsu="fukn umount u"
