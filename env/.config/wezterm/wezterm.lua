@@ -28,4 +28,6 @@ config.unix_domains = {
   },
 }
 
+config.front_end = "OpenGL"
+
 return config

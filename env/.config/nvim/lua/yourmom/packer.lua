@@ -4,14 +4,16 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-
     use 'wbthomason/packer.nvim'
 
-    use 'ThePrimeagen/vim-be-good'
-    use 'ThePrimeagen/harpoon'
+    -- # learning
 
+    use 'ThePrimeagen/vim-be-good'
+    -- use 'vuciv/golf' --vim daily task
     use 'm4xshen/hardtime.nvim'
+
+
+    -- # niceties
 
     use 'rcarriga/nvim-notify'
 
@@ -22,26 +24,19 @@ return require('packer').startup(function(use)
 
     use '3rd/image.nvim'
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8', -- 0.1.5
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use("mbbill/undotree")
 
     use "lukas-reineke/indent-blankline.nvim"
 
     use({ "NStefan002/screenkey.nvim", tag = "*" })
 
-    use("catgoose/nvim-colorizer.lua")
 
+    use("catgoose/nvim-colorizer.lua")
     use {
         'nvim-lualine/lualine.nvim',
         --requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
---[[
+    --[[
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate',
         config = function()
         require("nvim-treesitter.configs").setup {
@@ -52,29 +47,52 @@ return require('packer').startup(function(use)
         })
     ]]--
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+    use 'tpope/vim-fugitive'
 
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
+
+    -- # main dev requirements
+
+    use 'ThePrimeagen/harpoon'
+    use("mbbill/undotree")
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.8', -- 0.1.5
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use {
+        'neovim/nvim-lspconfig',
+        requires = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
-            {'L3MON4D3/LuaSnip'},
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/nvim-cmp',
+            --snippets
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets',
         }
     }
 
+    use 'folke/trouble.nvim'
     use 'mfussenegger/nvim-lint'
-
     use 'nvimtools/none-ls.nvim'
+
+    -- to dap, or not to dap? tis the question
+    --use 'mfussenegger/nvim-dap'
+    --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+    --[[
+    use {
+        "williamboman/mason.nvim",
+        "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim",
+    }
+    --]]
 
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 

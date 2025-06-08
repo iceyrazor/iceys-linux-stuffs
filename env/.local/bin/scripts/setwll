@@ -2,13 +2,16 @@
 # may be moved to theme setter
 cd "$(dirname "$0")"
 
+listwalls=0
 unload=0
 secondary=""
 primary=""
 all=""
 
-while getopts "up:s:a:" opt; do
+while getopts "lup:s:a:" opt; do
     case "$opt" in
+        l) listwalls=1
+            ;;
         u) unload=1
             ;;
         p) primary="$OPTARG"
@@ -22,6 +25,11 @@ done
 
 shift $((OPTIND-1))
 [ "${1:-}" = "--" ] && shift
+
+if [ $listwalls == 1 ]; then
+    ls ./wallpaper_scripts
+    exit 0
+fi
 
 if [ "$all" ]; then
     primary="$all"
