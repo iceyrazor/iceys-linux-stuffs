@@ -38,7 +38,7 @@ export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
 alias fukn="sudo $@"
 alias ls='ls --color=auto'
-alias lss="fukn du -ahd 1 | sort -hr"
+alias lss="fukn du -ahd 1 | sort -h"
 alias lsu="lsblk --filter 'NAME=~\"sd[abcde]\"' -o NAME,MOUNTPOINTS"
 alias surf="WEBKIT_DISABLE_COMPOSITING_MODE=1 surf"
 alias grep='grep --color=auto'

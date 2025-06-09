@@ -31,12 +31,6 @@ vim.keymap.set("v", "<leader>p", "\"_dP")
 --nnoremap S :%s//g<left><left>
 vim.keymap.set("n", "S", [[:%s//<Left>]])
 
-
-vim.keymap.set('n', '<leader>to', ':tabnew<CR>')
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>')
-vim.keymap.set('n', '<leader>tn', ':tabn<CR>')
-vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
-
 vim.keymap.set('n', '<leader>lw', '<cmd>:set wrap!<CR>')
 
 --stay in indent mode
@@ -54,13 +48,21 @@ vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>')
 vim.keymap.set('n', '<leader>v', '<C-w>v')
 vim.keymap.set('n', '<leader>h', '<C-w>s')
 vim.keymap.set('n', '<leader>se', '<C-w>=')
-vim.keymap.set('n', '<leader>xs', ':close<CR>')
+vim.keymap.set('n', '<leader>sx', ':close<CR>')
 
 -- navigate splits 
 vim.keymap.set("n","<C-h>","<C-w>h")
 vim.keymap.set("n","<C-j>","<C-w>j")
 vim.keymap.set("n","<C-l>","<C-w>l")
 vim.keymap.set("n","<C-k>","<C-w>k")
+
+-- navigate tabs
+vim.keymap.set('n', '<leader>to', ':tabnew<CR>')
+vim.keymap.set('n', '<leader>tx', ':tabclose<CR>')
+vim.keymap.set('n', '<leader>tn', ':tabn<CR>')
+vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
+
+
 
 
 

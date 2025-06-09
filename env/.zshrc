@@ -20,13 +20,17 @@ PS1='%B%F{white}[%B%F{magenta}%n%B%F{yellow}@%B%F{magenta}%M %B%F{cyan}%1~%B%F{w
 
 bindkey -v
 # Yank to the system clipboard
-function vi-yank-xclip {
+function vi-yank-clipboard {
    zle vi-yank
-   echo "$CUTBUFFER" | xclip -selection clipboard
+   if [ "$WAYLAND_DISPLAY" ]; then
+       printf "$CUTBUFFER" | wl-copy
+   else
+       printf "$CUTBUFFER" | xclip -selection clipboard
+   fi
 }
 
-zle -N vi-yank-xclip
-bindkey -M vicmd ' y' vi-yank-xclip
+zle -N vi-yank-clipboard
+bindkey -M vicmd ' y' vi-yank-clipboard
 
 #fzf search
 source <(fzf --zsh)
