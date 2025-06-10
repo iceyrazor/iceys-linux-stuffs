@@ -1,5 +1,8 @@
 MD013: false # max line length
 MD007: false # ul indendtation
 MD025: false # single h1 title
+# i like no spaces around headings
+MD022: false # spacing around heading
+MD032: false # spacing before lines
 MD012:
   maximum: 2 # maximum blank lines

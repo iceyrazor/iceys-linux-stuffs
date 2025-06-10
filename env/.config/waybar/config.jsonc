@@ -134,8 +134,13 @@
 
     "custom/power": {
         "tooltip": false,
-        "on-click": "wlogout &",
+        "on-click": "~/.config/wlogout/wlogout.sh",
         "format": "⏻"
+    },
+
+    "custom/lock": {
+        "format": "",
+        "on-click": "hyprlock"
     },
 
     "custom/docker": {

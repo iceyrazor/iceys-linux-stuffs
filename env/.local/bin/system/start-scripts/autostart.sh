@@ -60,7 +60,7 @@ fi
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     if [ -z "$(pgrep vesktop)" ]; then
         sleep 2s
-        flatpak run dev.vencord.Vesktop & disown
+        vesktop & disown
     fi
 
     if [ -z "$(pgrep gajim)" ]; then
