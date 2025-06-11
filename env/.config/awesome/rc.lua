@@ -141,10 +141,10 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+mymainmenu = awful.menu({ items = {
+    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "open terminal", terminal }
+}})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -462,7 +462,6 @@ awful.rules.rules = {
 }
 -- }}}
 if screen[2] then
-    screen[2]:fake_resize(1986,33,1792,1015)
     table.insert(awful.rules.rules,
     { rule_any = {
             class = { "Mumble", "gajim", "vesktop" }
@@ -487,15 +486,6 @@ client.connect_signal("manage", function (c)
     end
 end)
 
-screen[1]:connect_signal("request::geometry", function(s)
-    -- Recalculate the workarea height
-    -- s.workarea.height = s.geometry.height - 100
-    gears.debug.print_error("Workarea height: " .. tostring(s.workarea.height))
-    naughty.notify({ title = "Oops, there were errors during startup!",
-                     text = 'djsakldsaujsaiodsjugfa89rdfjg489ejt' })
-    -- You can also recalculate s.workarea.y if you want to fine-tune vertical placement
-    -- awful.layout.arrange(s)
-end)
 awful.layout.suit.tile.master_width_factor = 0.5
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -551,4 +541,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- autostart applets
-awful.spawn.with_shell("~/.local/bin/system/start_scripts/autostart.sh")
+awful.spawn.with_shell("~/.local/bin/system/start-scripts/autostart.sh")

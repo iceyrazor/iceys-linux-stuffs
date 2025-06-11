@@ -15,7 +15,7 @@ fsyncb () {
     fi
 }
 
-syncfile="stuff .surf/styles .gnupg .ssh .local/bin/lf-gadgets .config/FreeTube .config/wlxoverlay .config/newsboat .var/app/dev.vencord.Vesktop/config/vesktop/themes .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .local/share/applications/custom .local/share/osu"
+syncfile="stuff .surf/styles .gnupg .ssh .local/bin/lf-gadgets .config/FreeTube .config/wlxoverlay .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .local/share/applications/custom .local/share/osu"
 
 # se shit
 syncfile="$syncfile /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Blueprints /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/IngameScripts /home/iceyrazor/.local/share/Steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/AppData/Roaming/SpaceEngineers/Saves"

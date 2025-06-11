@@ -1,3 +1,4 @@
+-- KEYS are out of wack. n should be o but its not. ill fix it later
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
@@ -66,7 +67,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey, "Shift" }, "u", show_my_desktop, {description = "show desktop", group = "awesome"}),
+    -- awful.key({ modkey, "Shift" }, "u", show_my_desktop, {description = "show desktop", group = "awesome"}),
 
     awful.key({ modkey,           }, "i",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
