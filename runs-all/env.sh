@@ -1,9 +1,9 @@
 #!/bin/bash
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+script_dir_2="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 echo DEPLOYING ENV ALL
-cp -r $script_dir/../env/. "$DEV_ENV"
-[ -d "$script_dir/../env_private/env/" ] && cp -r $script_dir/../env_private/env/. "$DEV_ENV"
+cp -r $script_dir_2/../env/. "$DEV_ENV"
+[ -d "$script_dir_2/../env_private/env/" ] && cp -r $script_dir_2/../env_private/env/. "$DEV_ENV"
 
 path_dirs="$(find $DEV_ENV/.local/bin/scripts -type d)"
 

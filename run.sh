@@ -33,7 +33,7 @@ fi
 if [ "$1" != "" ]; then
     . "$script_dir/runs/$1.sh"
     if [ $run_runs_all == 1 ]; then
-        . "$script_dir/../runs-all/$1.sh"
+        . "$script_dir/runs-all/$1.sh"
     fi
 else
     for s in $runs_dir; do
