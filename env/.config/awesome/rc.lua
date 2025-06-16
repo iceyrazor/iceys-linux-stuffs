@@ -261,7 +261,7 @@ awful.screen.connect_for_each_screen(function(screen)
     spacerbg.bg = beautiful.bg_normal
 
     screen.mywibox.bg = beautiful.wibar_background
-    screen.mywibox.ontop = true
+    screen.mywibox.ontop = false
     screen.mywibox.floating = false
 
     local mykeyboardlayout = wibox.widget.background(mykeyboardlayout)
@@ -454,6 +454,14 @@ awful.rules.rules = {
         class = { "steam_app*", "vesktop", "Minecraft*" }
         },
         properties = { border_width = 0 }
+    },
+
+    {
+        rule = { name = "im-emoji-picker" },
+        properties = {
+            focusable = false,
+            focus = false,
+        }
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -470,6 +478,25 @@ if screen[2] then
     }
 )
 end
+
+client.connect_signal("manage", function(c)
+    if c.name == "im-emoji-picker" then
+        local focused = client.focus
+        if focused and focused ~= c then
+            -- Center on focused client
+            local geo = focused:geometry()
+            local c_geo = c:geometry()
+
+            c:geometry({
+                x = geo.x + (geo.width - c_geo.width) / 2,
+                y = geo.y + (geo.height - c_geo.height) / 2
+            })
+        else
+            -- Fallback: center on screen
+            awful.placement.centered(c, nil)
+        end
+    end
+end)
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.

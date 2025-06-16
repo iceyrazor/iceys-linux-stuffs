@@ -152,7 +152,7 @@ esac
 }}
 
 cmd clip-path ${{
-    if [ -z $WAYLAND_DISPLAY ]; then
+    if [ -z "${WAYLAND_DISPLAY-}" ]; then
         printf "$f" | xclip -selection clipboard
     else
         printf "$f" | wl-copy

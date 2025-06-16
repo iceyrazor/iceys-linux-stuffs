@@ -37,6 +37,8 @@ fi
 export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
 
 alias fukn="sudo $@"
+[ doas ] && alias fukn="doas $@"
+
 alias ls='ls --color=auto'
 alias lss="fukn du -ahd 1 | sort -h"
 alias lsu="lsblk --filter 'NAME=~\"sd[abcde]\"' -o NAME,MOUNTPOINTS"
@@ -50,11 +52,6 @@ alias ff='fastfetch -c $HOME/.config/fastfetch/10.jsonc 2> /dev/null || fastfetc
 alias ffchar='fastfetch -c $HOME/.config/fastfetch/ascii-char.jsonc'
 # alias fastfetch='fastfetch --localip-show-ipv4 0 --kitty-direct /home/iceyrazor/stuff/media/ICE/Sprite-0009.png --logo-width 40 --logo-height 20'
 alias numen="echo key x | fukn dotool && NUMEN_DMENU=rofi NUMEN_DMENU_OPTS='-show drun' LD_LIBRARY_PATH=/usr/lib/ numen & disown"
-
-[ "$(cat /etc/hostname)" = "Kasino" ] && alias fukn="doas $@"
-[ "$(cat /etc/hostname)" = "Witchen" ] && alias fukn="doas $@"
-[ "$(cat /etc/hostname)" = "Kan" ] && alias fukn="doas $@"
-
 alias ascii="~/stuff/scripts/c/SDL/ascii/ascii"
 
 alias watchlss="fukn watch \"du -ah -d 1 | sort -hr\""

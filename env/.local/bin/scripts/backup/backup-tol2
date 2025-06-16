@@ -1,0 +1,31 @@
+cd ~/
+
+fsynca () {
+    # t?
+    rsync -RUurvn --size-only --delete-after $exclude $syncfile "$target"
+}
+
+fsyncb () {
+    printf "===confirm changes?\n"
+    read -p "y/n: " uinput
+    if [ "$uinput" != "n" ] && [ "$uinput" != "N" ]; then
+        printf "\n\n\n"
+        rsync -RUurv --progress --size-only --delete-after $exclude $syncfile "$target"
+        printf "\n===end sync\n---------\n\n"
+    fi
+}
+
+syncfile=".surf/styles .urlview .local/bin/lf-gadgets .local/share/applications/custom .config/newsboat .config/zsh .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/media/ICE stuff/scripts/iceys-linux-stuffs stuff/scripts/system"
+
+# stuff/scripts .gnupg 
+
+#sync game stuff
+target="laptop2:~"
+exclude="--exclude mediamtx.yml --exclude stream.sh --exclude node_modules --exclude **/target"
+
+
+fsynca
+
+printf "==CC-survival unsynced\n\n"
+
+fsyncb
