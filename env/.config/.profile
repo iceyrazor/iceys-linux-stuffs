@@ -102,6 +102,10 @@ alias statst="echo full_stat:true > ~/.local/bin/system/stbar/config.txt"
 alias statsf="echo full_stat:false > ~/.local/bin/system/stbar/config.txt"
 
 
+# git
+alias gitlol="git log --oneline --graph --decorate"
+
+
 alias nodem="find . -name 'node_modules' -type d | xargs du -sh | sort -hr | fzf -m --header \"select witch ones to delete\" --preview 'cat $(dirname {})/package.json'|awk print '{print $2}' | xargs -r rm -rf"
 
 alias walltaker="stuff/manual-programs/git/walltaker-client/walltaker.sh"
