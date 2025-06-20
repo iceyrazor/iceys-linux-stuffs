@@ -1,0 +1,25 @@
+#!/bin/bash
+FZF_PREVIEW_LINES=50
+FZF_PREVIEW_COLUMN=50
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+Preview_file="$script_dir/preview-image-typed.sh"
+
+[ "$1" ] && view_dir="$1"
+
+if [ ! "$view_dir" ]; then
+    echo NO DIR
+    exit 1
+fi
+
+cd "$view_dir"
+
+while :; do
+    open_file=$(fzf --preview "$Preview_file {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMN")
+    if [ "$open_file" ]; then
+        vlc "$open_file" & disown
+    else
+        break
+    fi
+done

@@ -1,6 +1,5 @@
-local ok, _ = pcall(require, 'telescope')
+local ok, telescope  = pcall(require, 'telescope')
 if ok then
-    local telescope = require('telescope')
     local builtin = require('telescope.builtin')
     local action = require('telescope.actions')
     telescope.setup{
@@ -11,8 +10,21 @@ if ok then
                     ["q"] = action.close,
                 }
             }
-        }
+        },
+        pickers = {
+            find_files = {
+                find_command = {
+                    "rg",
+                    "--files",
+                    "--hidden",
+                    "--ignore-vcs",
+                    "--no-ignore",
+                    "-g", "!**/.git/*",
+                },
+            },
+        },
     }
+    --[[
     if string.find(vim.loop.cwd(),"iceys%-linux%-stuffs") then
         telescope.setup{
             pickers = {
@@ -22,6 +34,7 @@ if ok then
             }
         }
     end
+    ]]--
     -- vim.keymap.set('n', '<leader>pf', "<cmd>Telescope find_files initial_mode=normal<cr>", {})
     -- sort_mru=true sort by most recently used
     -- sort_lastused=true
@@ -40,5 +53,7 @@ if ok then
         local word = vim.fn.expand("<cWORD>")
         builtin.grep_string({ search = word })
     end)
-    vim.keymap.set('n', '<leadere>pg', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>gg', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+    vim.keymap.set('n', '<leader>gm', builtin.git_commits, {})
 end
