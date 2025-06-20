@@ -142,6 +142,16 @@ if ok then
             "github:mason-org/mason-registry",
         },
     })
+    require('mason-nvim-dap').setup({
+        ensure_installed = {
+            "codelldb",
+        },
+        handlers = {
+            function(config)
+                require("mason-nvim-dap").default_setup(config)
+            end,
+        }
+    })
     require('mason-lspconfig').setup({
         ensure_installed = {
             --"markdownlint-cli2",
@@ -172,6 +182,14 @@ if ok then
             end
         }
     })
+
+
+    vim.filetype.add({
+        extension = {
+            src = "greyscript"
+        }
+    })
+
     lsp.greybel.setup({})
 
     vim.api.nvim_create_autocmd('LspAttach', {

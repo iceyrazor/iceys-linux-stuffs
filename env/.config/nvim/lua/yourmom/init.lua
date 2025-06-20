@@ -22,13 +22,13 @@ vim.o.ignorecase = true
 vim.opt.updatetime = 50
 --vim.opt.colorcolumn = "80"
 --vim.cmd('colorscheme vim')
-vim.cmd('colorscheme tokyonight')
+--vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme eldritch')
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 
 vim.cmd('hi SignColumn ctermbg=0')
-vim.cmd('set signcolumn=no')
 
 vim.cmd('hi Pmenu ctermfg=120')
 vim.cmd('hi Pmenu ctermbg=0')
@@ -41,13 +41,6 @@ vim.opt.termguicolors = true
 
 --allows highlighint in comments
 --vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
-
-
-vim.filetype.add({
-    extension = {
-        src = "greyscript"
-    }
-})
 
 
 -- make no file extension go to sh type

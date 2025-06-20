@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
 
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "folke/tokyonight.nvim", as = "tokyonight"}
+    use { "eldritch-theme/eldritch.nvim", as = "eldritch" }
+
 
     use "jbyuki/quickmath.nvim"
 
@@ -66,6 +68,7 @@ return require('packer').startup(function(use)
         requires = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
+            "jay-babu/mason-nvim-dap.nvim",
             -- Autocompletion
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
@@ -80,19 +83,15 @@ return require('packer').startup(function(use)
     }
 
     use 'folke/trouble.nvim'
+
     use 'mfussenegger/nvim-lint'
     use 'nvimtools/none-ls.nvim'
 
     -- to dap, or not to dap? tis the question
-    --use 'mfussenegger/nvim-dap'
-    --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
-    --[[
-    use {
-        "williamboman/mason.nvim",
-        "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim",
-    }
-    --]]
+    -- ill trya dap
+
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
