@@ -32,7 +32,8 @@ if ok then
         vim.keymap.set("n", "<Leader>dl", function() dap.step_into() end)
         vim.keymap.set("n", "<Leader>dj", function() dap.step_over() end)
         vim.keymap.set("n", "<Leader>dk", function() dap.step_out() end)
-        vim.keymap.set("n", "<Leader>dc", function() dap.continue() end)
+        vim.keymap.set("n", "<Leader>dc", function() dap.run(dap.configurations.rust[1]) end)
+        vim.keymap.set("n", "<Leader>dC", function() dap.continue() end)
         vim.keymap.set("n", "<Leader>db", function() dap.toggle_breakpoint() end)
         vim.keymap.set("n", "<Leader>dB", function()
             dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
@@ -65,6 +66,7 @@ if ok then
             request = "launch",
             program = function()
                 --return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+                vim.fn.jobstart('cargo build')
                 if vim.fn.expand("%:t:r") == "main" then
                     return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
                 else

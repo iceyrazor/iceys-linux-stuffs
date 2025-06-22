@@ -38,7 +38,7 @@ vim.keymap.set('v', '<', '<gv', {noremap = true})
 vim.keymap.set('v', '>', '>gv', {noremap = true})
 
 
---reize with arrows
+--reize with alt
 vim.keymap.set('n', '<A-k>', ':resize -2<CR>')
 vim.keymap.set('n', '<A-j>', ':resize +2<CR>')
 vim.keymap.set('n', '<A-h>', ':vertical resize -2<CR>')
