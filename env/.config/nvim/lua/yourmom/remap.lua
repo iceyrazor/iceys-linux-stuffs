@@ -3,18 +3,13 @@ vim.g.maplocalleader=" "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 
---[[vim.cmd[[
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'>
-]]
-
-
 --move highlighted stuffs
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 --keeps cursor at cur pos when stacking lines to single line
 vim.keymap.set("n", "J", "mzJ`z")
+
 --keeps cursur in middle with up down
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -25,6 +20,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
+
 --paste but dont overwrite current register with selection
 vim.keymap.set("v", "<leader>p", "\"_dP")
 
@@ -63,32 +59,17 @@ vim.keymap.set('n', '<leader>tn', ':tabn<CR>')
 vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
 
 
-
-
-
+-- make a error check thing for c
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
---per file type log quick binds
-local cc_command=""
-local filename = vim.api.nvim_buf_get_name(0)
 
-if string.find(filename,".*%.js$") then
-    cc_command="oconsole.log();<Esc>V=$hi"
-elseif string.find(filename,".*%.lua$") then
-    cc_command="oterm.print()<Esc>V=$i"
-elseif string.find(filename,".*%.c$") then
-    cc_command="oprintf(\"debug: %i\",);<Esc>V=$hi"
-elseif string.find(filename,".*%.rs$") then
-    cc_command="oprintln!(\"debug: {}\",);<Esc>V=$hi"
-end
 
-vim.keymap.set("n", "<leader>cc", cc_command)
-
-local auto_close=false
-local function toggle_auto_close()
-    if auto_close==false then
+-- auto closing para
+local function set_auto_close(doclose)
+    if doclose==true then
         vim.keymap.set("i", "{", "{<CR>}<Esc>ko");
         vim.keymap.set("i", "(", "()<Esc>i");
+        local filename = vim.api.nvim_buf_get_name(0)
         if string.find(filename,".*%.html$") then
             vim.keymap.set("i", "<", "<");
             vim.keymap.set("i", ">", "><Esc>T<yef>a</><Esc>hpF<i");
@@ -99,7 +80,6 @@ local function toggle_auto_close()
         vim.keymap.set("i", "[", "[]<Esc>i");
         vim.keymap.set("i", "\"", "\"\"<Esc>i");
         vim.keymap.set("i", "'", "''<Esc>i");
-        auto_close=true
     else
         vim.keymap.set("i", "{", "{");
         vim.keymap.set("i", "(", "(");
@@ -108,19 +88,50 @@ local function toggle_auto_close()
         vim.keymap.set("i", "[", "[");
         vim.keymap.set("i", "\"", "\"");
         vim.keymap.set("i", "'", "'");
-        auto_close=false
     end
 end
-toggle_auto_close()
+set_auto_close(true)
+
+
+local auto_close=true
+local function toggle_auto_close()
+    if auto_close==true then
+        auto_close=false
+    else
+        auto_close=true
+    end
+    set_auto_close(auto_close)
+end
 
 vim.keymap.set("n", "<leader>k", toggle_auto_close)
 
---[[
-vim.keymap("i","<Caps_Lock>", function()
-	
-end)
-]]
 
+
+-- update every buffer
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+  pattern = "*",
+  callback = function()
+      --per file type log quick binds
+      local cc_command=""
+      local filename = vim.api.nvim_buf_get_name(0)
+
+      set_auto_close(auto_close)
+
+      if string.find(filename,".*%.js$") then
+          cc_command="oconsole.log();<Esc>V=$hi"
+      elseif string.find(filename,".*%.lua$") then
+          cc_command="oterm.print()<Esc>V=$i"
+      elseif string.find(filename,".*%.c$") then
+          cc_command="oprintf(\"debug: %i\",);<Esc>V=$hi"
+      elseif string.find(filename,".*%.rs$") then
+          cc_command="oprintln!(\"debug: {}\",);<Esc>V=$hi"
+      end
+
+      vim.keymap.set("n", "<leader>cc", cc_command)
+  end
+})
+
+-- colemak rebinds
 local colemak_switch=false
 
 local colemak_tog = function()
