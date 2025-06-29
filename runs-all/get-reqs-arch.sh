@@ -15,7 +15,7 @@ if [ $artix ] || [ $arch ]; then
     # [ "$uin" == "n" ] || [ "$uin" == "N" ] && exit 0
 
     # xorg
-    $sudo pacman -S --noconfirm xorg-server libxft libxinerama
+    $sudo pacman -S --noconfirm xorg-server xorg-xinit libxft libxinerama
 
     # audio
     $sudo pacman -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack qpwgraph

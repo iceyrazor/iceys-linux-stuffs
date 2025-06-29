@@ -65,6 +65,8 @@ alias ts="~/stuff/scripts/system/tmux-sessionizer.sh"
 alias fman="bash -c 'compgen -c' | fzf | xargs man"
 alias etask="$EDITOR ~/stuff/scripts/system/task.sh"
 
+alias LC="fukn loadkeys ~/.config/swapscape.map"
+
 
 alias music="nohup vlc $YT_PLAYLIST_DIR/title_vids > /dev/null 2> /dev/null < /dev/null & disown && cd $YT_PLAYLIST_DIR/title_vids && lfk"
 alias ibuss="ibus-daemon -rxRd"

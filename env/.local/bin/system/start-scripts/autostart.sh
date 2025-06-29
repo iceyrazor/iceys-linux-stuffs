@@ -21,6 +21,7 @@ fi
 
 if [ -z "$WAYLAND_DISPLAY" ]; then
     xcompmgr &
+    setxkbmap -option caps:swapescape
 fi
 
 # if [ $extra == 1 ]; then
