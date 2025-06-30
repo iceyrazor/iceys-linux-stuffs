@@ -1,0 +1,35 @@
+#!/bin/bash
+sudo="sudo"
+[ doas ] && sudo="doas"
+
+umo=0
+
+while getopts "u" opt; do
+    case "$opt" in
+        u) umo=1
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
+
+if [ $umo == 1 ]; then
+    nf=4
+else
+    nf=3
+fi
+
+
+parts="$(lsblk -rno path,size,type,mountpoint | grep -e part -e lvm | awk "NF==$nf {print \$1, \$2, \$3, \$4}")"
+
+# choice="$(printf "$parts" | rofi -dmenu "beans" | sed 's/ .*//')"
+choice="$(printf "$parts" | fzf | sed 's/ .*//')"
+
+[ "$choice" == "" ] && exit 0
+
+if [ $umo == 1 ]; then
+    $sudo umount $choice
+else
+    $sudo mount $choice ~/u
+fi

@@ -5,7 +5,6 @@ echo DEPLOYING ENV ALL
 cp -r $script_dir_2/../env/. "$DEV_ENV"
 [ -d "$script_dir_2/../env_private/env/" ] && cp -r $script_dir_2/../env_private/env/. "$DEV_ENV"
 
-path_dirs="$(find $DEV_ENV/.local/bin/scripts -type d)"
 
 if [ ! -f "/etc/profile" ]; then
     echo NO /etc/profile
@@ -14,12 +13,14 @@ else
     export PATH=""
     source /etc/profile
     paths="$PATH"
-    yt_cli_dir="$(find ~/stuff/scripts/**/youtube-playlist-cli -maxdepth 0 -type d)"
+    path_dirs="$(find $DEV_ENV/.local/bin/scripts -type d)"
+    yt_cli_dir="$(find ~/stuff/ -name youtube-playlist-cli -type d)"
 
     path_dirs="$path_dirs
 $yt_cli_dir
-$(find ~/stuff/scripts/**/theme-setter -maxdepth 0 -type d)
-$(find ~/stuff/scripts/system -maxdepth 2 -type d)"
+$(find ~/stuff/ -name theme-setter -type d)
+$(find $script_dir/keep/system -type d)
+$(find $script_dir/env_private/keep/system -type d)"
 
     for s in $path_dirs; do
         echo "adding $s to path"

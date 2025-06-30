@@ -61,9 +61,8 @@ alias lfk=~/.local/bin/lf-gadgets/lf-kitty/lf-kitty
 alias ovim=/usr/bin/vim
 alias vim=nvim
 alias notes="cd ~/stuff/notes && vim notes.md && cd ~"
-alias ts="~/stuff/scripts/system/tmux-sessionizer.sh"
+alias ts="tmux-sessionizer.sh"
 alias fman="bash -c 'compgen -c' | fzf | xargs man"
-alias etask="$EDITOR ~/stuff/scripts/system/task.sh"
 
 alias LC="fukn loadkeys ~/.config/swapscape.map"
 
