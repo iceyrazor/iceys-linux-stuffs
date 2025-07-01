@@ -21,8 +21,8 @@ Us_keys_colemak = require("keys-US-colemak")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-local HOMEDIR="/home/iceyrazor"
-mpris=HOMEDIR.."/stuff/scripts/system/mpris_player_control"
+local HOMEDIR="/home/iceyrazor/"
+mpris=HOMEDIR..".local/bin/system/mpris_player_control"
 
 
 local show_desktop = false
@@ -275,7 +275,7 @@ awful.screen.connect_for_each_screen(function(screen)
 
     -- Add widgets to the wibox
     if screen.index==1 then
-        local stbar = awful.widget.watch(HOMEDIR..'/stuff/scripts/system/stbar/stbar-awesome.sh', 2)
+        local stbar = awful.widget.watch(HOMEDIR..'.local/bin/system/stbar/stbar-awesome.sh', 2)
         local stbar = wibox.widget.background(stbar)
         stbar.bg = beautiful.bg_normal
 

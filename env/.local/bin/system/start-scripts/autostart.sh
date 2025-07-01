@@ -54,14 +54,14 @@ fi
 
 if [ -z "$(pgrep wezterm)" ]; then
     sleep 2
-    wezterm -e ~/stuff/scripts/system/task.sh &
+    wezterm -e ~/.local/bin/system/task.sh &
 fi
 
 
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     if [ -z "$(pgrep vesktop)" ]; then
         sleep 2s
-        vesktop & disown
+        dbus-run-session vesktop & disown
     fi
 
     if [ -z "$(pgrep gajim)" ]; then

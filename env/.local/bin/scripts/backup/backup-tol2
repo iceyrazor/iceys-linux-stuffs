@@ -15,7 +15,7 @@ fsyncb () {
     fi
 }
 
-syncfile=".surf/styles .urlview .local/bin/lf-gadgets .local/share/applications/custom .config/newsboat .config/zsh .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/media/ICE stuff/scripts/iceys-linux-stuffs stuff/scripts/system"
+syncfile=".surf/styles .urlview .local/bin/lf-gadgets .local/share/applications/custom .config/newsboat .config/zsh .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/media/ICE stuff/scripts/iceys-linux-stuffs"
 
 # stuff/scripts .gnupg 
 

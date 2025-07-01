@@ -34,8 +34,6 @@ if [ -f ~/.local/bin/system/paths.sh ]; then
     source ~/.local/bin/system/paths.sh
 fi
 
-export heartost="/home/iceyrazor/.steam/root/steamapps/music/Heartbound - OST"
-
 alias fukn="sudo $@"
 [ doas ] && alias fukn="doas $@"
 
@@ -76,7 +74,11 @@ alias get_channel_id="xargs curl -s | grep -Eo 'channel_id=.{0,50}' | sed 's/\".
 alias vasm="~/stuff/manual-programs/vasm/vasm6502_oldstyle -Fbin -dotdir "
 alias pipes="pipes.sh -t 0 -p 3 -f 30 -r 2000"
 alias astro="astroterm --color --constellations --speed 10000 --fps 64 --unicode -i Arlington"
+
+# hyprland
 alias anim="hyprctl keyword animations:enabled "
+alias swap="hyprctl keyword input:kb_options caps:swapescape"
+alias nswap="hyprctl keyword input:kb_options null"
 
 # mounting
 alias umsu="fukn umount u"
