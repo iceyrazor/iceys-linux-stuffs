@@ -3,6 +3,8 @@
 this is just some configs and stuffs i decided to put on my github
 eg my dotfiles
 
+- current os Artix linux (btw)
+
 ## update 05/24/2025
 
 i liked how primagen did his dev environment and deploying of scripts. so im making my own version
@@ -31,7 +33,7 @@ note: the pacman install scripts may not be fully what i have as i made this loo
 - installing dwm, dmenu, and surf
     - cd into respective directory
     - sudo make clean install
-    - startx #for dwm
+    - startx # for dwm
 - hyprland
     - wayland
     - waybar
@@ -40,23 +42,27 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - xdg-deskop=portal-hyprland
     - xdg-deskop=portal-gtk
     - hyprpaper
+    - hyprlock
+    - wlogout
 - for neovim
-    - packer
+    - packer # (download script in runs/packer.sh)
 - for urlview - urlview
 - terminal
     - primary wezterm
     - secondary rxvt-unicode # less memory usage
-- ibus
-    - ibus-mozc # for japanese input
+- fcitx5-im
+    - fcitx5-mozc
+    - fcitx5-im-emoji-picker-git
 - fonts
     - B612 mono
     - ttf-inconsolata
     - ttf-jetbrains-mono
     - ttf-jetbrains-mono-nerd
+    - noto-fonts-emoji
     - otf-ipafont
 - login
-    - sddm (for hyprland. it doesnt like lightdm :<)
-    - lightdm
+    - sddm # for hyprland. it doesnt like lightdm :<
+    - lightdm # for x11
     - lightdm-gtk-greeter
 - lxappearance # for setting gtk theme
 - theme
@@ -67,7 +73,7 @@ note: the pacman install scripts may not be fully what i have as i made this loo
 - background setter - nitrogen # for x11
 - numen # voice control, manual setup
 - file manager
-    - lf
+    - lf (with lf-gadgets at .local/bin)
     - pcmanfm
 - shell
     - zsh
@@ -76,7 +82,9 @@ note: the pacman install scripts may not be fully what i have as i made this loo
     - pipewire-jack
     - pipewire-pulse
     - qpwgraph
-- onscreen keys - screenkey
+- onscreen keys
+    - screenkey
+    - showmethekey # for wayland
 - compositor
     - xcompmgr # primarily
     - picom # for fancy ness
@@ -93,7 +101,7 @@ note: the pacman install scripts may not be fully what i have as i made this loo
 - notifications
     - libnotify
     - notify-send
-    - dusnt # for hyprland
+    - dusnt
 - calender
     - calcurse
 
