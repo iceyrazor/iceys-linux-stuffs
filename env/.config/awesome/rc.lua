@@ -103,9 +103,6 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
-if awesome.hostname == "DangerNoodle" then
-    --modkey = "Mod3"
-end
 
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -322,7 +319,7 @@ awful.screen.connect_for_each_screen(function(screen)
                 screen.mylayoutbox,
             },
         }
-    end 
+    end
 
 
     -- Add widgets to the wibox

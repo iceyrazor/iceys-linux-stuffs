@@ -41,8 +41,8 @@ if [ $artix ] || [ $arch ]; then
     $sudo pacman -S --noconfirm zsh bat ntfs-3g inetutils doas atuin gvfs-mtp btop htop wezterm rxvt-unicode lf ripgrep rofi-wayland networkmanager
 
     # misc
-    $sudo pacman -S --noconfirm v4l2loopback-dkms sddm lxappearance reflector gnome-keyring yt-dlp grim
-    paru -S --noconfirm obs-studio-git gpu-screen-recorder gpu-screen-recorder-gtk urlview flameshot-git
+    $sudo pacman -S --noconfirm v4l2loopback-dkms sddm lxappearance reflector gnome-keyring yt-dlp grim slurp libnotify
+    paru -S --noconfirm obs-studio-git gpu-screen-recorder gpu-screen-recorder-gtk urlview 
 
     # fun
     $sudo pacman -S --noconfirm fastfetch cmus vlc cowsay openrgb steam

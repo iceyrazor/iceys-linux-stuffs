@@ -14,11 +14,6 @@ xset s 0
 nitrogen --restore &
 xrdb -merge /home/iceyrazor/.Xresources &
 
-if [ $extra == 1 ]; then
-    xrandr --dpi 90 &
-    xrandr --output Virtual-1 --mode 1920x1080
-fi
-
 if [ -z "$WAYLAND_DISPLAY" ]; then
     xcompmgr &
     setxkbmap -option caps:swapescape
