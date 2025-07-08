@@ -19,6 +19,7 @@ else
     path_dirs="$path_dirs
 $yt_cli_dir
 $(find ~/stuff/ -name theme-setter -type d)
+$(find ~/.local/bin/blender* -maxdepth 0 -type d)
 $(find $script_dir/keep/scripts -type d)
 $(find $script_dir/env_private/keep/scripts -type d)"
 
