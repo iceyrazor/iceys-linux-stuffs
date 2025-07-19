@@ -65,7 +65,7 @@ alias fman="bash -c 'compgen -c' | fzf | xargs man"
 alias LC="fukn loadkeys ~/.config/swapscape.map"
 
 
-alias music="nohup vlc $YT_PLAYLIST_DIR/title_vids > /dev/null 2> /dev/null < /dev/null & disown && cd $YT_PLAYLIST_DIR/title_vids && lfk"
+alias music="nohup vlc ~/stuff/media/music > /dev/null 2> /dev/null < /dev/null & disown && cd ~/stuff/media/music && lfk"
 alias ibuss="ibus-daemon -rxRd"
 alias ygg="fukn bash -c 'mkdir /var/run/yggdrasil; yggdrasil -useconf < /etc/yggdrasil.conf'"
 alias obss="obs && obs --enable-media-stream & disown"

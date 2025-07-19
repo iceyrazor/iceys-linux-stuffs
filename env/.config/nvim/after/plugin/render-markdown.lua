@@ -1,0 +1,38 @@
+local ok, rmarkdown = pcall(require, 'render-markdown')
+if ok then
+    rmarkdown.setup({
+        code = {
+            enabled = true,
+            render_modes = false,
+            sign = true,
+            style = 'full',
+            position = 'left',
+            language_pad = 0,
+            language_icon = true,
+            language_name = true,
+            language_info = true,
+            disable_background = { 'diff' },
+            width = 'full',
+            left_margin = 0,
+            left_pad = 0,
+            right_pad = 0,
+            min_width = 0,
+            border = 'hide',
+            language_border = '█',
+            language_left = '',
+            language_right = '',
+            above = '▄',
+            below = '▀',
+            inline_left = '',
+            inline_right = '',
+            inline_pad = 0,
+            highlight = 'RenderMarkdownCode',
+            highlight_info = 'RenderMarkdownCodeInfo',
+            highlight_language = nil,
+            highlight_border = 'RenderMarkdownCodeBorder',
+            highlight_fallback = 'RenderMarkdownCodeFallback',
+            highlight_inline = 'RenderMarkdownCodeInline',
+        },
+        completions = { lsp = { enabled = true } },
+    })
+end

@@ -15,7 +15,7 @@ fsyncb () {
     fi
 }
 
-syncfile=".surf/styles .urlview .gnupg .local/bin/lf-gadgets .local/share/applications/custom .config/FreeTube .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/scripts stuff/media/ICE"
+syncfile=".surf/styles .urlview .gnupg .local/bin/lf-gadgets .local/share/applications/custom .config/FreeTube .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/scripts stuff/media/ICE stuff/media/music"
 
 #sync game stuff
 target="laptop:~"
