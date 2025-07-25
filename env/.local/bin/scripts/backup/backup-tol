@@ -15,11 +15,11 @@ fsyncb () {
     fi
 }
 
-syncfile=".surf/styles .urlview .gnupg .local/bin/lf-gadgets .local/share/applications/custom .config/FreeTube .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/scripts stuff/media/ICE stuff/media/music"
+syncfile=".surf/styles .urlview .gnupg .local/bin/lf-gadgets .local/share/applications/custom .config/FreeTube .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus stuff/notes stuff/openvpn-cons stuff/scripts stuff/media/ICE stuff/media/music stuff/manual-programs/mediamtx"
 
 #sync game stuff
 target="laptop:~"
-exclude="--exclude mediamtx.yml --exclude stream.sh --exclude node_modules --exclude **/target"
+exclude="--exclude stream.sh --exclude node_modules --exclude **/target"
 
 
 fsynca

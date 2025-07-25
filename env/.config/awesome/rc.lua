@@ -22,7 +22,6 @@ Us_keys_colemak = require("keys-US-colemak")
 require("awful.hotkeys_popup.keys")
 
 local HOMEDIR="/home/iceyrazor/"
-mpris=HOMEDIR..".local/bin/system/mpris_player_control"
 
 
 local show_desktop = false

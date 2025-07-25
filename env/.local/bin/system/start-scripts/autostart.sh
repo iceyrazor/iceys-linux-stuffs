@@ -56,7 +56,7 @@ fi
 if [ "$(cat /etc/hostname)" == "Kasino" ]; then
     if [ -z "$(pgrep vesktop)" ]; then
         sleep 2s
-        dbus-run-session vesktop & disown
+        dbus-run-session discord & disown
     fi
 
     if [ -z "$(pgrep gajim)" ]; then

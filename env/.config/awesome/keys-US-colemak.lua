@@ -127,8 +127,8 @@ globalkeys = gears.table.join(
         awesome.restart()
     end),
 
-    awful.key({ }, "XF86AudioPlay", function () awful.util.spawn(mpris.." -a PlayPause") end),
-    awful.key({ }, "XF86AudioStop", function () awful.util.spawn(mpris.." -a pause") end),
+    awful.key({ }, "XF86AudioPlay", function () awful.util.spawn("playerctl play-pause") end),
+    awful.key({ }, "XF86AudioStop", function () awful.util.spawn("playerctl -a pause") end),
     --awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%", false) end),

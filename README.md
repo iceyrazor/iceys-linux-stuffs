@@ -8,6 +8,7 @@ eg my dotfiles
 ## update 05/24/2025
 
 i liked how primagen did his dev environment and deploying of scripts. so im making my own version
+
 > [!NOTE] the pacman install scripts may not be fully what i have as i made this loong after installing software
 
 ## requirements
@@ -107,9 +108,6 @@ i liked how primagen did his dev environment and deploying of scripts. so im mak
 
 ## todo
 
-- deploy system folder? or just add keep/system directory to path. tis the question.
-    - probably will deploy.
-- make 3rd env so first is minimal????
-- add rest of files
-- make fully portable version, all pulled and compiled version bins for just devtools.
-- seperate installs into more scripts to have different steps in requirements. probably wont do this
+- [ ] make symlink. where if -s. do symlink instead of env
+- [ ] seperate installs into more scripts to have different steps in requirements. probably wont do this
+- [ ] make fully portable version, all pulled and compiled version bins for just devtools.
