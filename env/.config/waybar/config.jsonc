@@ -1,7 +1,8 @@
 {
     "layer": "top",
     "position": "bottom",
-    "modules-left": ["hyprland/workspaces"],
+    // "modules-left": ["hyprland/workspaces"],
+    "modules-left": [ "sway/workspaces", "sway/mode" ],
 
     //"modules-center": ["clock", ], //"custom/weather"],
 
@@ -69,6 +70,33 @@
             "10": []
         },
         */
+        "sort-by-name": true
+    },
+
+    "sway/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1":"  ",
+            "2":"  ",
+            "3":"  ",
+            "4":"  ",
+            "5":"  ",
+            "6":"  ",
+            "7":"  ",
+            "8":"  ",
+            "9":"  ",
+            "10":"  ",
+            "11":"  ",
+            "12":"  ",
+            "13":"  ",
+            "14":"  ",
+            "15":"  ",
+            "16":"  ",
+            "17":"  ",
+            "18":"  ",
+            "19":"  ",
+            "20":"  "
+        },
         "sort-by-name": true
     },
 

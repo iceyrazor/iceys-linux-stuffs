@@ -1,7 +1,6 @@
 #!/bin/bash
-arch="$(uname -r | grep arch)"
-artix="$(uname -r | grep artix)"
-if [ $artix ] || [ $arch ]; then
+. /etc/os-release
+if [ "$ID" == "artix" ] || [ "$ID" == "arch" ]; then
     sudo="sudo"
     [ doas ] && sudo="doas"
 
@@ -99,7 +98,7 @@ if [ $artix ] || [ $arch ]; then
     [ $doall == 1 ] || [ $audio == 1 ] && $sudo pacman -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack qpwgraph
 
     # hyprland
-    [ $doall == 1 ] || [ $hyprland == 1 ] && $sudo pacman -S --noconfirm wayland hyprland waybar wlogout hyprlock xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6-wayland qt5-wayland
+    [ $doall == 1 ] || [ $hyprland == 1 ] && $sudo pacman -S --noconfirm wayland hyprland waybar wlogout hyprlock xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr qt6-wayland qt5-wayland sway
     [ $doall == 1 ] || [ $hyprland == 1 ] && $aurm -S --noconfirm dunst-git sddm-theme-tokyo-night-git
 
     # vpn stuff

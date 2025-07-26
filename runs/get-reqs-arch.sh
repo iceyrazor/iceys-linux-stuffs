@@ -1,7 +1,6 @@
 #!/bin/bash
-arch="$(uname -r | grep arch)"
-artix="$(uname -r | grep artix)"
-if [ $artix ] || [ $arch ]; then
+. /etc/os-release
+if [ "$ID" == "artix" ] || [ "$ID" == "arch" ]; then
     sudo="sudo"
     [ doas ] && sudo="doas"
 

@@ -79,6 +79,10 @@ alias astro="astroterm --color --constellations --speed 10000 --fps 64 --unicode
 alias anim="hyprctl keyword animations:enabled "
 alias swap="hyprctl keyword input:kb_options caps:swapescape"
 alias nswap="hyprctl keyword input:kb_options null"
+if [ "$XDG_CURRENT_DESKTOP" = "sway:wlroots" ]; then
+    alias swap="swaymsg 'input \"type:keyboard\" xkb_options \"caps:swapescape\"'"
+    alias nswap="swaymsg 'input \"type:keyboard\" xkb_options \"\"'"
+fi
 
 # mounting
 alias umsu="fukn umount u"

@@ -35,12 +35,13 @@ i liked how primagen did his dev environment and deploying of scripts. so im mak
     - cd into respective directory
     - sudo make clean install
     - startx # for dwm
-- hyprland
+- hyprland or sway
     - wayland
     - waybar
     - grim # needed for flameshot to work on wayland
     - xdg-deskop=portal
     - xdg-deskop=portal-hyprland
+    - xdg-deskop=portal-wlr # for sway
     - xdg-deskop=portal-gtk
     - hyprpaper
     - hyprlock
