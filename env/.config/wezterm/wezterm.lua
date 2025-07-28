@@ -7,8 +7,6 @@ config.enable_tab_bar = false
 
 config.font = wezterm.font_with_fallback {
     'B612 Mono',
-    --'Inconsolata',
-    --  'CozetteVector', --has weird offset with japanese. きki becomes せse and vice versa
     'JetBrainsMono',
     'JetBrainsMono Nerd Font',
     'JetBrainsMono Nerd Font Mono',

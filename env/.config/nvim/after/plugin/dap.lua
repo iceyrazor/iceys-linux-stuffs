@@ -25,6 +25,40 @@ if ok then
     vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 
 
+    dap.configurations.rust = {
+        {
+            name = "Launch",
+            type = "codelldb",
+            request = "launch",
+            program = function()
+                --return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+                vim.fn.jobstart('cargo build')
+                if vim.fn.expand("%:t:r") == "main" then
+                    return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+                else
+                    return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnameescape(vim.fn.expand("%:t:r"))
+                end
+            end,
+            cwd = "${workspaceFolder}",
+            stopOnEntry = false,
+        },
+    }
+
+    dap.configurations.c = {
+        {
+            name = "Launch file",
+            type = "codelldb",
+            request = "launch",
+            program = function()
+                --return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                return vim.fn.getcwd() .. "/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+            end,
+            cwd = '${workspaceFolder}',
+            stopOnEntry = false,
+        },
+    }
+
+
     local ok, dapui = pcall(require, 'dapui')
     if ok then
         dapui.setup()
@@ -32,7 +66,17 @@ if ok then
         vim.keymap.set("n", "<Leader>dl", function() dap.step_into() end)
         vim.keymap.set("n", "<Leader>dj", function() dap.step_over() end)
         vim.keymap.set("n", "<Leader>dk", function() dap.step_out() end)
-        vim.keymap.set("n", "<Leader>dc", function() dap.run(dap.configurations.rust[1]) end)
+        --vim.keymap.set("n", "<Leader>dc", function() dap.run(dap.configurations.rust[1]) end)
+        vim.keymap.set("n", "<Leader>dc", function()
+            local ft = vim.bo.filetype
+            local configs = dap.configurations[ft]
+
+            if type(configs) == "table" and configs[1] then
+                dap.run(configs[1])
+            else
+                vim.notify("No DAP configuration found for filetype: " .. ft, vim.log.levels.ERROR)
+            end
+        end)
         vim.keymap.set("n", "<Leader>dC", function() dap.continue() end)
         vim.keymap.set("n", "<Leader>db", function() dap.toggle_breakpoint() end)
         vim.keymap.set("n", "<Leader>dB", function()
@@ -58,23 +102,4 @@ if ok then
         end
         ]]--
     end
-
-    dap.configurations.rust = {
-        {
-            name = "Launch",
-            type = "codelldb",
-            request = "launch",
-            program = function()
-                --return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-                vim.fn.jobstart('cargo build')
-                if vim.fn.expand("%:t:r") == "main" then
-                    return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-                else
-                    return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnameescape(vim.fn.expand("%:t:r"))
-                end
-            end,
-            cwd = "${workspaceFolder}",
-            stopOnEntry = false,
-        },
-    }
 end
