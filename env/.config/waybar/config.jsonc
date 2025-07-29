@@ -24,12 +24,12 @@
 
     "custom/ws_end_arrow":{
         "format": "",
-        "tooltip": false,
+        "tooltip": false
     },
 
     "custom/mod_end_arrow":{
         "format": "",
-        "tooltip": false,
+        "tooltip": false
     },
 
     "hyprland/workspaces": {
@@ -84,7 +84,7 @@
             "17": ["DP-1"],
             "18": ["DP-1"],
             "19": ["DP-1"],
-            "20": ["DP-1"],
+            "20": ["DP-1"]
         },
         "sort-by-name": true
     },
@@ -133,7 +133,7 @@
             "17": ["DP-1"],
             "18": ["DP-1"],
             "19": ["DP-1"],
-            "20": ["DP-1"],
+            "20": ["DP-1"]
         },
         "sort-by-name": true
     },

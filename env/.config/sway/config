@@ -254,8 +254,8 @@ for_window [app_id="showmethekey-gtk"] \
     floating enable, \
     sticky enable, \
     border none, \
-    move position 257 1664, \
-    resize set 1487 50, \
+    move position 357 1660, \
+    resize set 1160 50, \
 
 # im-emoji-picker window
 no_focus [title="im-emoji-picker"]

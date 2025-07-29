@@ -1,7 +1,10 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader=" "
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- notes
+vim.keymap.set("n", "<leader>notes", ":e ~/stuff/notes/notes.md<CR>")
 
 --move highlighted stuffs
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -62,7 +65,31 @@ vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
 -- make a error check thing for c
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
+-- terminal niceites
+vim.keymap.set("n", "<C-;>", ":", { desc = "Enter command mode" })
+vim.keymap.set("v", "<C-;>", ":", { desc = "Enter command mode (visual)" })
+vim.keymap.set("t", "<C-e>", "<C-\\><C-n>", { desc = "Exit terminal" })
 
+
+--change cwd to directory of buffer or git master directory
+local function set_cwd()
+    local fname = vim.fn.expand("%:p")
+    if not fname:find("fugitive") and not fname:find("term") then -- no dot in filename
+        vim.cmd('cd ' .. vim.fn.expand('%:p:h'))
+
+        local gitroot = vim.fn.system("git rev-parse --show-toplevel")
+        if string.find(gitroot, "fatal", 1, true) == nil then
+            vim.cmd("cd " .. gitroot)
+        end
+    end
+end
+
+vim.keymap.set("n", "<leader>c", set_cwd, {})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = "*",
+    callback = set_cwd
+})
 
 -- auto closing para
 local function set_auto_close(doclose)
@@ -104,8 +131,6 @@ local function toggle_auto_close()
 end
 
 vim.keymap.set("n", "<leader>k", toggle_auto_close)
-
-
 
 -- update every buffer
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
