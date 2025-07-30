@@ -9,7 +9,8 @@ eg my dotfiles
 
 i liked how primagen did his dev environment and deploying of scripts. so im making my own version
 
-> [!NOTE] the pacman install scripts may not be fully what i have as i made this loong after installing software
+> [!NOTE]
+> the pacman install scripts may not be fully what i have as i made this loong after installing software
 
 ## requirements
 

@@ -24,6 +24,4 @@ exclude="--exclude stream.sh --exclude node_modules --exclude **/target"
 
 fsynca
 
-printf "==CC-survival unsynced\n\n"
-
 fsyncb

@@ -4,8 +4,11 @@
 
 ~/.local/bin/system/neoboot.sh
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ "$wezterm" == "yes" ]]; then
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+    source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 fi
 
 # Lines configured by zsh-newuser-install
@@ -37,7 +40,6 @@ source <(fzf --zsh)
 
 source ~/.config/.profile
 #bash --login -i -c 'source ~/.profile'
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # bindkey -a h backward-char
 # bindkey -a i forward-char

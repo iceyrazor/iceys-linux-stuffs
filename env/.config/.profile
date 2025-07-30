@@ -26,7 +26,7 @@ fi
 export DEV_ENV=~
 export PROMPT_EOL_MARK=""
 export EDITOR="nvim"
-export BROWSER="custom-zen.desktop"
+#export BROWSER="custom-zen.desktop"
 export PREFIX=/usr
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin/blender-4.1.1-linux-x64"
 export MANPAGER='nvim +Man!'

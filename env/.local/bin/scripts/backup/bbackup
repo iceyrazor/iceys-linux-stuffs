@@ -15,7 +15,7 @@ fsyncb () {
     fi
 }
 
-syncfile="stuff .surf/styles .config/eDEX-UI/ .gnupg .ssh .local/bin/lf-gadgets .config/FreeTube .config/wlxoverlay .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .local/share/applications/custom .local/share/osu"
+syncfile="stuff .surf/styles .config/eDEX-UI/ .gnupg .ssh .local/bin/lf-gadgets .config/FreeTube .config/wlxoverlay .config/newsboat .config/zsh .config/vesktop/themes .keepass .config/Pinta .config/cmus .config/cava .local/share/applications/custom .local/share/osu .librewolf"
 
 target="/home/iceyrazor/mnt-backups/LINUX FILES/home/iceyrazor"
 exclude="--exclude node_modules --exclude node_modules_23 --exclude **/target --exclude LinVAM/pyenv"

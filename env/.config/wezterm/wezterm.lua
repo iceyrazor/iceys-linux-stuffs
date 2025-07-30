@@ -2,7 +2,10 @@ local wezterm = require 'wezterm'
 local colors= require 'colors'
 
 local config = {}
-config.default_prog = { 'zsh', '-l' } --config.font = wezterm.font 'Classic Console' config.font_size = 15 config.font = wezterm.font 'Source Code Pro'
+--config.font = wezterm.font 'Classic Console' config.font_size = 15 config.font = wezterm.font 'Source Code Pro'
+config.set_environment_variables = {
+  wezterm = 'yes',
+}
 config.enable_tab_bar = false
 
 config.font = wezterm.font_with_fallback {
