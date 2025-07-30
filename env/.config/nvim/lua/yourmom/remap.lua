@@ -66,8 +66,8 @@ vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 -- terminal niceites
-vim.keymap.set("n", "<C-;>", ":", { desc = "Enter command mode" })
-vim.keymap.set("v", "<C-;>", ":", { desc = "Enter command mode (visual)" })
+-- vim.keymap.set("n", "<C-;>", ":", { desc = "Enter command mode" })
+-- vim.keymap.set("v", "<C-;>", ":", { desc = "Enter command mode (visual)" })
 vim.keymap.set("t", "<C-e>", "<C-\\><C-n>", { desc = "Exit terminal" })
 
 
